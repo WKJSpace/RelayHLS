@@ -1,0 +1,35 @@
+# Vitis/Vivado generated outputs
+hls/
+logs/
+reports/
+backups/
+.Xil/
+.cache/
+*.jou
+*.log
+*.rpt
+*.str
+*.summary
+*.hlscompile_summary
+*.hlsrun_*_summary
+compile_commands.json
+
+# Implementation outputs
+*.dcp
+*.bit
+*.ltx
+*.wdb
+*.wcfg
+*.pb
+*.pb3
+*.zip
+
+# Python/cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local editor/system files
+.DS_Store
+.vscode/
+.idea/
