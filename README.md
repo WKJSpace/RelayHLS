@@ -1,6 +1,6 @@
-# FlexRelay-HLS
+# RelayHLS
 
-FlexRelay-HLS is a Vitis HLS project for FPGA-oriented Relay-BP decoding of qLDPC codes.
+RelayHLS is a Vitis HLS project for FPGA-oriented Relay-BP decoding of qLDPC codes.
 The repository packages three independent `PACK_BITS=64` design variants used to study CNU/VNU parallelism and implementation scalability.
 
 ## Included Variants
