@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use RelayHLS, please cite the associated paper and this software."
+title: "RelayHLS"
+type: software
+authors:
+  - family-names: "Wei"
+    given-names: "Kaijie"
+repository-code: "https://github.com/WKJSpace/RelayHLS"
+url: "https://github.com/WKJSpace/RelayHLS"
+license: MIT
+version: 0.1.0
+date-released: 2026-07-29
+keywords:
+  - quantum LDPC
+  - belief propagation
+  - FPGA
+  - high-level synthesis
+preferred-citation:
+  type: conference-paper
+  title: "RelayHLS: Low-Latency FPGA Acceleration of Relay-BP toward Trapped-Ion Quantum Error Correction"
+  authors:
+    - family-names: "Wei"
+      given-names: "Kaijie"
+  year: 2026

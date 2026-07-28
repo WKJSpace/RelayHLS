@@ -1,0 +1,4 @@
+variant,cnu_lanes,vnu_lanes,period_ns,wns_ns,lut,ff,bram18,dsp,dynamic_power_w,total_power_w,checked_workload_us,throughput_kworkloads_s,total_energy_mj,dynamic_energy_mj,throughput_per_100k_lut
+C8/V16,8,16,9.042,0.958,69481,31147,926,0,0.847,3.330,351.38,2.846,1.170,0.298,4.10
+C16/V16,16,16,9.068,0.932,91731,38466,930,0,1.069,3.555,321.21,3.113,1.142,0.343,3.39
+C16/V32,16,32,8.795,1.205,99328,45692,949,0,1.343,3.833,203.59,4.912,0.780,0.273,4.95

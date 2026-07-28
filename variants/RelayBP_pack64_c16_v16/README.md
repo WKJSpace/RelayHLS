@@ -1,6 +1,6 @@
 # RelayBP_pack64_c16_v16
 
-This directory is a self-contained Vitis HLS variant of FlexRelay-HLS.
+This directory is a self-contained Vitis HLS variant of RelayHLS.
 It targets the qLDPC Relay-BP decoder with `PACK_BITS=64` and the parallelism encoded in the directory name.
 
 ## Contents
