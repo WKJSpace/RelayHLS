@@ -3,7 +3,7 @@ set -euo pipefail
 
 load_vitis_env() {
   if command -v vivado-2025.2 >/dev/null 2>&1; then
-    vivado-2025.2 >/tmp/flexrelay_vivado_env.log 2>&1 || true
+    vivado-2025.2 >/tmp/relayhls_vivado_env.log 2>&1 || true
   fi
   export VITIS_BIN=${VITIS_BIN:-/home/cad/xilinx/Vivado-2025.2/2025.2/Vitis/bin}
   export VIVADO_BIN=${VIVADO_BIN:-/home/cad/xilinx/Vivado-2025.2/2025.2/Vivado/bin}
