@@ -1,0 +1,10 @@
+stage,cycles,time_us,measurement_scope
+initialization,713,7.13,standalone_hls_estimate
+cnu_pass,67,0.67,standalone_hls_estimate
+vnu_pass,300,3.00,standalone_hls_estimate
+bp_update,370,3.70,standalone_hls_estimate
+convergence_check,235,2.35,standalone_hls_estimate
+candidate_cost,146,1.46,standalone_hls_estimate
+commit_mask,143,1.43,reported_outside_fixed_kernel
+detector_response,257,2.57,reported_outside_fixed_kernel
+carry_extraction,93,0.93,reported_outside_fixed_kernel
