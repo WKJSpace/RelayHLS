@@ -7,6 +7,11 @@ initialization, check-node and variable-node updates, up-to-four sequential
 DMem-BP legs, convergence checking, candidate selection, and correction-related
 processing.
 
+![RelayHLS decoding flow](docs/figures/relayhls_flow.png)
+
+*Up to four legs share decoder state. Candidate costs are evaluated after
+convergence, and the controller may terminate early.*
+
 This is the corrected RelayHLS source revision. It includes the corrected multi-leg
 controller and banked datapath. The three synthetic configurations
 are reproducibility fixtures; their dimensions do not establish decoding quality
@@ -38,6 +43,34 @@ campaigns are running.
 - **Complete control path:** the HLS top includes multi-leg execution,
   convergence checks, minimum-cost candidate retention, and correction-related
   outputs.
+
+## Relationship to FlexRelay
+
+RelayHLS and FlexRelay share the Relay-BP algorithm and its mathematical
+definitions. HLS, banked message storage, fixed-point arithmetic and generated
+port-legal access tables are also shared implementation ideas. These features
+alone do not establish a separate contribution. The one-time prior bypass and
+carried state across later legs are algorithmic correctness requirements.
+
+The architectural comparison follows the supplied FlexRelay manuscript:
+
+| Aspect | RelayHLS | FlexRelay |
+|---|---|---|
+| Architectural focus | Reusable complete CN/VN lanes, with synthesis-time precision, packing, banking and lane parameters. | Graph-to-hardware compilation and a graph-specialized system organization. |
+| CN computation | Gather a complete neighborhood into each CN lane, perform a tree reduction, and scatter outgoing messages. | Accumulate bank-local partial CN results, merge them across banks, and write messages by bank. |
+| CN parallelism | `CNU_PARALLEL` counts complete CN lanes. | Mapping groups, bank reducers and CN merge parallelism have separate roles. |
+| Evaluated interface scope | Unsigned positive priors and independent, unpruned basis graphs. | Includes optional pruning and cross-basis correlation in its own design scope. |
+
+RelayHLS's contribution must be supported by its node-lane organization and its
+own implementation evidence. Shared equations, controller fixes and access-table
+generation must not be presented as newly introduced decoding methods. Identical
+notation does not imply identical prior ranges or bit-for-bit outputs.
+
+Results must identify the RelayHLS source and configuration that produced them.
+Common circuit inputs do not transfer FlexRelay's measurements to RelayHLS.
+Comparative performance claims require matched graphs, arithmetic, devices,
+controller work and timing boundaries. Ongoing experimental results remain
+withheld.
 
 ## Included Variants
 
