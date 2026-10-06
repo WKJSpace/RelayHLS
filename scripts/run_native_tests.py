@@ -50,7 +50,7 @@ def main():
             executable = Path(temporary) / (variant.name + ".test")
             command = [args.cxx, "-O2", "-std=c++14", "-Wno-unknown-pragmas",
                        "-I" + args.include, "-I" + str(variant), "-I" + str(variant / "src"),
-                       str(ROOT / "tests/arc_regression.cpp"),
+                       str(ROOT / "tests/decoder_regression.cpp"),
                        str(variant / "src/decoder_top.cpp"), args.gmp, "-o", str(executable)]
             if variant == fixture:
                 command.insert(1, "-DRELAYHLS_WINDOW_FIXTURE")

@@ -7,7 +7,7 @@ initialization, check-node and variable-node updates, up-to-four sequential
 DMem-BP legs, convergence checking, candidate selection, and correction-related
 processing.
 
-This is the ARC2027 source revision. It includes the corrected multi-leg
+This is the corrected RelayHLS source revision. It includes the corrected multi-leg
 controller and the ARC banked implementation. The three synthetic configurations
 are reproducibility fixtures; their dimensions do not establish decoding quality
 on a physical quantum circuit. Experimental results are withheld while the ARC

@@ -9,7 +9,6 @@ repository-code: "https://github.com/WKJSpace/RelayHLS"
 url: "https://github.com/WKJSpace/RelayHLS"
 license: MIT
 version: 0.2.0
-date-released: 2026-10-06
 keywords:
   - quantum LDPC
   - belief propagation

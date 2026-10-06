@@ -102,7 +102,7 @@ int main() {
         std::cerr << "FAIL arithmetic or carried-leg state\n";
         return 1;
     }
-    std::mt19937_64 random(20261006);
+    std::mt19937_64 random(0x135288eULL);
     static Prior banked[PRIOR_BANK_FACTOR][PRIOR_BANK_DEPTH];
     static PackedBits candidate[NUM_FAULT_WORDS], best[NUM_FAULT_WORDS], expected_best[NUM_FAULT_WORDS];
     int max_updates = 0;

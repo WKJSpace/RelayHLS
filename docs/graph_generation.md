@@ -1,6 +1,6 @@
 # Graph Constants and Their Consumers
 
-This describes the ARC2027 RelayHLS source revision. The graph topology,
+This describes the corrected RelayHLS source revision. The graph topology,
 edge schedules and packed interfaces are retained from the public artifact.
 The ARC controller corrects the later-leg bypass and uses the full forty-update
 default budget. Unused constant representations are omitted.
