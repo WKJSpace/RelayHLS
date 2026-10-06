@@ -7,13 +7,22 @@ initialization, check-node and variable-node updates, up-to-four sequential
 DMem-BP legs, convergence checking, candidate selection, and correction-related
 processing.
 
-![RelayHLS decoding flow](docs/figures/relayhls_flow.png)
+This is the corrected RelayHLS source revision. It includes the corrected multi-leg
+controller and banked datapath. The three synthetic configurations
+are reproducibility fixtures; their dimensions do not establish decoding quality
+on a physical quantum circuit. Experimental results are withheld while the RelayHLS
+campaigns are running.
 
-The repository accompanies the paper *RelayHLS: Low-Latency FPGA Acceleration
-of Relay-BP toward Trapped-Ion Quantum Error Correction*. It contains the three
-independently configurable implementations used for the VCU118 architecture
-study, together with graph generators, validation tests, and reproducibility
-scripts.
+## RelayHLS Controller
+
+- Four leg strengths: `beta = {7, 5, 3, 1}/8`, `gamma = 1 - beta`.
+- The prior-only bypass applies once, at the first update of the initial leg.
+  Later legs retain the previous posterior and edge messages.
+- Default budget: ten updates per leg, forty total; check every two updates.
+- Converged candidates are scored by parallel prior-bank accumulation. The
+  lowest-cost correction is retained; two candidates end the default search.
+- The VNU traverses continuous groups. A private decode buffer is copied to
+  the dataflow output after frame and carry processing is complete.
 
 ## Architecture at a Glance
 
@@ -36,11 +45,13 @@ scripts.
 |---|---:|---:|---:|---|
 | `RelayBP_pack64_c8_v16` | 8 | 16 | 8 | Resource-oriented point |
 | `RelayBP_pack64_c16_v16` | 16 | 16 | 16 | CNU-scaling point |
-| `RelayBP_pack64_c16_v32` | 16 | 32 | 16 | Lowest-latency evaluated point |
+| `RelayBP_pack64_c16_v32` | 16 | 32 | 16 | Wider VNU point |
 
 All three variants use 64-bit packed binary interfaces, 64 message-memory
-banks, four-bit message magnitudes, and the same deterministic
-1,008-detector/9,000-candidate-fault/8,064-edge benchmark graph. Each directory
+banks, four-bit message magnitudes, and deterministic synthetic benchmarks
+with 1,008 detectors, 9,000 candidate-fault slots and 8,064 edges. The C8
+variant has 7,961 active columns; both C16 variants have 7,349. These are
+equal-size workloads; the C8 and C16 graph topologies differ. Each directory
 is self-contained so its Vitis project and generated constants can be opened,
 validated, and implemented independently.
 
@@ -97,17 +108,33 @@ Each variant provides two generator entry points:
 - `tools/generate_real_circuit_constants.py` imports a detector-fault graph
   derived from a circuit model.
 
-Keep the selected parameters in `configs/constants_config.json`, regenerate
-`src/constants.h`, run the generator tests, and pass C simulation before
-synthesis. The generators reject schedules that exceed the available
-true-dual-port BRAM accesses.
+Keep the selected parameters in `configs/constants_config.json` and generate
+new headers into a separate file using `--output`. The renderers use the same
+prior packing and FIFO declarations as the
+committed headers. Review a generated header before replacing a configured
+fixture. See [constant generation](docs/graph_generation.md).
+Run the generator tests and pass C simulation before synthesis. The
+generators reject schedules that exceed the available true-dual-port BRAM
+accesses.
 
-## Results and Reproducibility
+## Verification and Experimental Status
 
-Compact post-route and stage-level results are provided under [`results/`](results/).
-Generated Vitis/Vivado build products are intentionally excluded; this keeps
-the repository reviewable while the committed configurations, source, and
-static tables reproduce the evaluated design points.
+Run the native scalar and carried-leg regressions with the installed Vitis headers:
+
+```bash
+python3 scripts/run_native_tests.py --include /path/to/Vitis/include
+```
+
+Use `--gmp /full/path/to/libgmp.so` when the system has the GMP runtime without
+its development linker alias. The test covers all three variants, all four leg
+starts, repeated full-top calls, candidate cost, inactive columns and fixed-point
+bias arithmetic. The graph generators are also checked against the committed
+arrays and packed-prior interface.
+
+RelayHLS quality, RTL, routing and board campaigns remain separate experiments. This
+source update publishes no performance or logical-error results. Historical CSVs
+are available in earlier revisions and do not describe this controller. Generated
+Vitis/Vivado products stay outside Git. See [reproducibility](docs/reproducibility.md).
 
 ## Citation
 

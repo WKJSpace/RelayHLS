@@ -38,7 +38,7 @@ class FakeHGeneratorTest(unittest.TestCase):
 
     def test_variant_uses_global_ten_iteration_budget(self):
         self.assertEqual(self.mod.MAX_ITERS_PER_LEG, 10)
-        self.assertEqual(self.mod.GLOBAL_MAX_ITERS, 10)
+        self.assertEqual(self.mod.GLOBAL_MAX_ITERS, 40)
         self.assertEqual(self.mod.CONVERGENCE_CHECK_INTERVAL, 2)
         self.assertEqual(self.mod.CNU_PARALLEL, self.mod.DEFAULT_CONFIG["CNU_PARALLEL"])
         self.assertEqual(self.mod.VNU_PARALLEL, self.mod.DEFAULT_CONFIG["VNU_PARALLEL"])
@@ -94,7 +94,7 @@ class FakeHGeneratorTest(unittest.TestCase):
         self.assertIn("static_assert(PACKED_BANK_FACTOR == PACK_BITS", text)
         self.assertIn("static_assert(PRIOR_PACK_FACTOR == PACK_BITS", text)
         self.assertIn("static_assert(NUM_ACTIVE_FAULTS > 0", text)
-        self.assertIn("constexpr int PRIOR_INIT[NUM_FAULTS] = {};", text)
+        self.assertNotIn("PRIOR_INIT", text)
         self.assertTrue(text.rstrip().endswith("#endif  // CONSTANTS_H"))
 
     def test_rewrite_constants_can_target_temp_output(self):

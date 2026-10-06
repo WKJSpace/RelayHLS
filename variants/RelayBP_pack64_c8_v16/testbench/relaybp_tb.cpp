@@ -281,7 +281,7 @@ static bool raw_relay_bp_decode(
             raw_bp_iteration(
                 v_to_c, c_to_v, syndrome, local_priors,
                 marginals, hard_decisions,
-                alpha_shift, LEG_BETA[r], MEM_SHIFT, t == 0);
+                alpha_shift, LEG_BETA[r], MEM_SHIFT, r == 0 && t == 0);
 
             total_iters++;
 

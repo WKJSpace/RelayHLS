@@ -284,7 +284,7 @@ def render_real_preamble(config, matrix, logical_nonzeros):
         "",
         "constexpr int W = WINDOW_W;",
         "constexpr int C = COMMIT_C;",
-        "constexpr int FIFO_DEPTH = WINDOW_W + 2;",
+        "constexpr int FIFO_DEPTH = WINDOW_W + COMMIT_C;",
         "",
         "constexpr int H_MAX_ROW_DEGREE = %d;" % fake.H_MAX_ROW_DEGREE,
         "constexpr int H_MAX_COL_DEGREE = %d;" % fake.H_MAX_COL_DEGREE,
@@ -309,7 +309,8 @@ def render_real_preamble(config, matrix, logical_nonzeros):
         "constexpr int MSG_INT_BITS = %d;" % fake.MSG_INT_BITS,
         "constexpr int MSG_MAX_MAG  = (1 << MSG_INT_BITS) - 1;",
         "constexpr int PRIOR_PACK_FACTOR = %d;" % fake.PRIOR_PACK_FACTOR,
-        "constexpr int PRIOR_WORD_BITS   = 6 * PRIOR_PACK_FACTOR;",
+        "constexpr int PRIOR_WORD_BITS   = PRIOR_PACK_FACTOR * MSG_INT_BITS;",
+        "constexpr int NUM_PRIOR_WORDS   = (NUM_FAULTS + PRIOR_PACK_FACTOR - 1) / PRIOR_PACK_FACTOR;",
         "constexpr float SCALE_S = %.1ff;" % (float(fake.SCALE_S_FIXED) / float(fake.SCALE_ONE_FIXED)),
         "constexpr int SCALE_FRAC_BITS = %d;" % fake.SCALE_FRAC_BITS,
         "constexpr int SCALE_ONE_FIXED = 1 << SCALE_FRAC_BITS;",
@@ -347,6 +348,8 @@ def render_real_preamble(config, matrix, logical_nonzeros):
         "static_assert(PRIOR_BANK_FACTOR == PRIOR_PACK_FACTOR, \"prior banks must match prior pack lanes\");",
         "static_assert(EDGE_BANK_FACTOR >= CNU_PARALLEL * 2, \"CNU schedule assumes enough dual-port edge banks\");",
         "static_assert(EDGE_BANK_FACTOR >= VNU_PARALLEL, \"VNU schedule assumes enough edge banks\");",
+        "static_assert(MAX_LEGS == 4, \"RelayHLS leg schedule requires four strengths\");",
+        "static_assert(MEM_SHIFT == 3, \"RelayHLS strengths use denominator eight\");",
         "static_assert(GLOBAL_MAX_ITERS <= MAX_TOTAL_ITERS, \"global iteration budget exceeds LEG budget\");",
         "static_assert(CONVERGENCE_CHECK_INTERVAL > 0, \"convergence interval must be positive\");",
         "static_assert(CARRY_DETECTOR_START + CARRY_SIZE <= NUM_DETECTORS, \"carry window exceeds detector window\");",
@@ -363,22 +366,7 @@ def render_real_tail(graph):
 
     a_row_degrees = [len(row) for row in logical_rows]
     a_neighbors = [fake._pad(sorted(row), fake.A_MAX_ROW_DEGREE) for row in logical_rows]
-    a_csr_row_ptr = [0]
-    a_csr_col_idx = []
-    for row in logical_rows:
-        a_csr_col_idx.extend(sorted(row))
-        a_csr_row_ptr.append(len(a_csr_col_idx))
-    if not a_csr_col_idx:
-        a_csr_col_idx = [0]
-
     return "\n".join([
-        "// ================================================================",
-        "// Runtime priors",
-        "// ================================================================",
-        "// The HLS top uses packed prior input words. PRIOR_INIT remains only",
-        "// for compatibility with code paths that include constants.h directly.",
-        "constexpr int PRIOR_INIT[NUM_FAULTS] = {};",
-        "",
         "// ================================================================",
         "// A~ logical action matrix",
         "// ================================================================",
@@ -386,18 +374,10 @@ def render_real_tail(graph):
         "",
         fake._format_2d_array("A_ROW_NEIGHBORS", "K_OBSERVABLES][A_MAX_ROW_DEGREE", a_neighbors),
         "",
-        fake._format_flat_array("A_CSR_ROW_PTR", "K_OBSERVABLES + 1", a_csr_row_ptr),
-        "",
-        fake._format_flat_array("A_CSR_COL_IDX", "A_NUM_NONZEROS", a_csr_col_idx),
-        "",
         "// ================================================================",
         "// Dummy masks",
         "// ================================================================",
         "constexpr int COMMIT_MASK[NUM_FAULTS] = {};",
-        "constexpr int CONVERGENCE_MASK[NUM_DETECTORS] = {};",
-        "",
-        "// Carry-out rows",
-        "constexpr int CARRY_OUT_ROWS[CARRY_SIZE] = {};",
         "",
         "#endif  // CONSTANTS_H",
         "",
