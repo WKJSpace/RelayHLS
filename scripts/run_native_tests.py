@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile and run the scalar/ARC regressions using installed Vitis headers."""
+"""Compile and run the scalar/controller regressions using installed Vitis headers."""
 import argparse
 import importlib.util
 from pathlib import Path

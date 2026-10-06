@@ -1,4 +1,4 @@
-# ARC Source Reproducibility
+# RelayHLS Source Reproducibility
 
 ## Configuration and control
 
@@ -36,7 +36,7 @@ four leg starts and exhaustive fixed-point bias values. Native compilation needs
 Vitis arbitrary-precision headers and GMP; `--gmp` accepts a full runtime-library
 path when `-lgmp` is unavailable.
 
-Generator tests cover bank conflicts and edge coverage. The shared ARC contract
+Generator tests cover bank conflicts and edge coverage. The shared RelayHLS contract
 also compares every synthetic array with the committed header and checks that
 both generators preserve the packed-prior interface and omit unused tables.
 
@@ -47,7 +47,7 @@ and OOC implementation. Reports are generated locally and excluded from Git.
 An `II=1` directive is a synthesis request; inspect the achieved loop interval
 and warnings before making a throughput claim.
 
-ARC experiments are ongoing. No quality, latency, resource, power or energy
+RelayHLS experiments are ongoing. No quality, latency, resource, power or energy
 results are published in this source update. Earlier CSVs belong to historical
 code and remain available in Git history. A source regression or completed HLS
 run does not establish RTL agreement, physical latency or board energy.

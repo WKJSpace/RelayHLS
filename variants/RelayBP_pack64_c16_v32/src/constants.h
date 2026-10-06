@@ -188,8 +188,8 @@ static_assert(MEM_SHIFT < 31, "MEM_SHIFT must fit int shifts");
 static_assert(MEM_SCALE == (1 << MEM_SHIFT),
               "MEM_SCALE must match MEM_SHIFT");
 static_assert(MAX_LEGS > 0, "MAX_LEGS must be positive");
-static_assert(MAX_LEGS == 4, "ARC leg schedule requires four strengths");
-static_assert(MEM_SHIFT == 3, "ARC strengths use denominator eight");
+static_assert(MAX_LEGS == 4, "RelayHLS leg schedule requires four strengths");
+static_assert(MEM_SHIFT == 3, "RelayHLS strengths use denominator eight");
 static_assert(MAX_ITERS_PER_LEG > 0, "MAX_ITERS_PER_LEG must be positive");
 static_assert(GLOBAL_MAX_ITERS > 0, "GLOBAL_MAX_ITERS must be positive");
 static_assert(MAX_TOTAL_ITERS == MAX_LEGS * MAX_ITERS_PER_LEG,

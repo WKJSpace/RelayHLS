@@ -4,7 +4,7 @@ Repository-level automation for RelayHLS.
 
 - `common.sh`: shared variant list and environment setup.
 - `run_csim_all.sh`: runs C simulation for every variant using its `hls_config.cfg`.
-- `run_unit_tests.sh`: runs shared ARC contracts and graph-generator tests for every variant.
+- `run_unit_tests.sh`: runs shared RelayHLS contracts and graph-generator tests for every variant.
 - `run_native_tests.py`: checks scalar/controller outputs, intermediate state and a small logical/carry fixture with Vitis headers.
 - `run_hls_ooc_all.sh`: runs HLS synthesis and direct Vivado OOC implementation for every variant.
 - `clean_generated.sh`: removes generated Vitis/Vivado artifacts.

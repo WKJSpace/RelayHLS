@@ -94,8 +94,8 @@ PARAMETER_HINTS = {
     "CNU_PARALLEL": "Check-node lanes. Valid examples: 8 or 16. Higher values need bank-conflict validation.",
     "VNU_PARALLEL": "Variable-node lanes. Must divide PACK_BITS. Valid examples: 16 or 32.",
     "CONVERGENCE_PARALLEL": "Detector convergence lanes. Usually match CNU_PARALLEL for balanced detector banking.",
-    "MAX_ITERS_PER_LEG": "Maximum BP updates per leg; the ARC default is 10.",
-    "GLOBAL_MAX_ITERS": "Total BP-update budget across four legs; the ARC default is 40.",
+    "MAX_ITERS_PER_LEG": "Maximum BP updates per leg; the RelayHLS default is 10.",
+    "GLOBAL_MAX_ITERS": "Total BP-update budget across four legs; the RelayHLS default is 40.",
     "CONVERGENCE_CHECK_INTERVAL": "Check interval in iterations. Current design checks every 2 iterations.",
 }
 
@@ -210,9 +210,9 @@ def validate_config(config):
     if cfg["BANK_PORTS"] != 2:
         errors.append("BANK_PORTS must remain 2 for true dual-port BRAM scheduling")
     if cfg["MAX_LEGS"] != 4:
-        errors.append("MAX_LEGS must be 4 for the fixed ARC leg schedule")
+        errors.append("MAX_LEGS must be 4 for the fixed RelayHLS leg schedule")
     if cfg["MEM_SHIFT"] != 3:
-        errors.append("MEM_SHIFT must be 3 for eighth-based ARC strengths")
+        errors.append("MEM_SHIFT must be 3 for eighth-based RelayHLS strengths")
     if cfg["GLOBAL_MAX_ITERS"] > cfg["MAX_LEGS"] * cfg["MAX_ITERS_PER_LEG"]:
         errors.append("GLOBAL_MAX_ITERS cannot exceed MAX_LEGS * MAX_ITERS_PER_LEG")
     if cfg["CONVERGENCE_CHECK_INTERVAL"] > cfg["GLOBAL_MAX_ITERS"]:
@@ -667,8 +667,8 @@ def render_preamble():
         "static_assert(PRIOR_BANK_FACTOR == PRIOR_PACK_FACTOR, \"prior banks must match prior pack lanes\");",
         "static_assert(EDGE_BANK_FACTOR >= CNU_PARALLEL * 2, \"CNU schedule assumes enough dual-port edge banks\");",
         "static_assert(EDGE_BANK_FACTOR >= VNU_PARALLEL, \"VNU schedule assumes enough edge banks\");",
-        "static_assert(MAX_LEGS == 4, \"ARC leg schedule requires four strengths\");",
-        "static_assert(MEM_SHIFT == 3, \"ARC strengths use denominator eight\");",
+        "static_assert(MAX_LEGS == 4, \"RelayHLS leg schedule requires four strengths\");",
+        "static_assert(MEM_SHIFT == 3, \"RelayHLS strengths use denominator eight\");",
         "static_assert(GLOBAL_MAX_ITERS <= MAX_TOTAL_ITERS, \"global iteration budget exceeds LEG budget\");",
         "static_assert(CONVERGENCE_CHECK_INTERVAL > 0, \"convergence interval must be positive\");",
         "static_assert(CARRY_DETECTOR_START + CARRY_SIZE <= NUM_DETECTORS, \"carry window exceeds detector window\");",

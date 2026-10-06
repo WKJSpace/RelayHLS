@@ -1,4 +1,4 @@
-"""Check ARC control settings, generator ABI and retained graph tables."""
+"""Check RelayHLS control settings, generator ABI and retained graph tables."""
 import importlib.util
 import json
 from pathlib import Path
@@ -30,10 +30,10 @@ def arrays(text):
         r"constexpr\s+int\s+(\w+)\[[^;]*;", text)}
 
 
-class ArcContract(unittest.TestCase):
+class SourceContract(unittest.TestCase):
     def test_fixed_leg_schedule_rejects_inconsistent_parameters(self):
         for variant in VARIANTS:
-            fake = load(variant / "tools/generate_fake_h_constants.py", "arc_parameters")
+            fake = load(variant / "tools/generate_fake_h_constants.py", "source_parameters")
             for key, value in (("MAX_LEGS", 5), ("MAX_LEGS", 3), ("MEM_SHIFT", 2)):
                 with self.subTest(variant=variant.name, parameter=key, value=value):
                     config = dict(fake.DEFAULT_CONFIG)
@@ -41,7 +41,7 @@ class ArcContract(unittest.TestCase):
                     with self.assertRaises(ValueError):
                         fake.validate_config(config)
 
-    def test_arc_controller_and_datapath(self):
+    def test_controller_and_datapath(self):
         for variant in VARIANTS:
             with self.subTest(variant=variant.name):
                 controller = (variant / "src/relay_bp.h").read_text()
@@ -54,7 +54,7 @@ class ArcContract(unittest.TestCase):
     def test_generator_matches_committed_arrays_and_abi(self):
         for variant in VARIANTS:
             with self.subTest(variant=variant.name):
-                fake = load(variant / "tools/generate_fake_h_constants.py", "arc_fake")
+                fake = load(variant / "tools/generate_fake_h_constants.py", "source_fake")
                 config = json.loads((variant / "configs/constants_config.json").read_text())
                 self.assertEqual(config["GLOBAL_MAX_ITERS"], 40)
                 fake.apply_config(config)
@@ -72,7 +72,7 @@ class ArcContract(unittest.TestCase):
     def test_real_generator_uses_same_packed_prior_abi(self):
         for variant in VARIANTS:
             with self.subTest(variant=variant.name):
-                real = load(variant / "tools/generate_real_circuit_constants.py", "arc_real")
+                real = load(variant / "tools/generate_real_circuit_constants.py", "source_real")
                 config = dict(real.fake.DEFAULT_CONFIG)
                 config.update(WINDOW_W=2, M_PER_CYCLE=2, NUM_FAULTS=5,
                               CNU_PARALLEL=2, VNU_PARALLEL=2,

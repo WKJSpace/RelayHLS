@@ -2,7 +2,7 @@
 
 This describes the corrected RelayHLS source revision. The graph topology,
 edge schedules and packed interfaces are retained from the public artifact.
-The ARC controller corrects the later-leg bypass and uses the full forty-update
+The RelayHLS controller corrects the later-leg bypass and uses the full forty-update
 default budget. Unused constant representations are omitted.
 
 ## 1. Disconnected candidate-fault columns
@@ -174,7 +174,7 @@ Both renderers use `FIFO_DEPTH = WINDOW_W + COMMIT_C`,
 `NUM_PRIOR_WORDS = ceil(NUM_FAULTS / PRIOR_PACK_FACTOR)`. They emit the bank-major
 schedules consumed by the kernels. Unused lane-major duplicate schedules, dummy
 priors, CSR duplicates and unused convergence/carry placeholders are omitted.
-The shared ARC contract compares all generated synthetic arrays with the committed
+The shared RelayHLS contract compares all generated synthetic arrays with the committed
 arrays and checks the packed-prior declarations for both renderers.
 
 Generate into a separate `--output` path when adapting a graph. Review the
@@ -189,4 +189,4 @@ alone does not define those semantics.
 The source tests cover generator schedules, the packed-prior ABI, independent
 scalar full-top outputs, carried state at each leg start, candidate costs and
 fixed-point bias arithmetic. HLS synthesis and RTL/physical evaluation are separate
-steps. Experimental results are not included while the ARC campaigns are running.
+steps. Experimental results are not included while the RelayHLS campaigns are running.

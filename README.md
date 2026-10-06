@@ -8,12 +8,12 @@ DMem-BP legs, convergence checking, candidate selection, and correction-related
 processing.
 
 This is the corrected RelayHLS source revision. It includes the corrected multi-leg
-controller and the ARC banked implementation. The three synthetic configurations
+controller and banked datapath. The three synthetic configurations
 are reproducibility fixtures; their dimensions do not establish decoding quality
-on a physical quantum circuit. Experimental results are withheld while the ARC
+on a physical quantum circuit. Experimental results are withheld while the RelayHLS
 campaigns are running.
 
-## ARC Controller
+## RelayHLS Controller
 
 - Four leg strengths: `beta = {7, 5, 3, 1}/8`, `gamma = 1 - beta`.
 - The prior-only bypass applies once, at the first update of the initial leg.
@@ -131,7 +131,7 @@ starts, repeated full-top calls, candidate cost, inactive columns and fixed-poin
 bias arithmetic. The graph generators are also checked against the committed
 arrays and packed-prior interface.
 
-ARC quality, RTL, routing and board campaigns remain separate experiments. This
+RelayHLS quality, RTL, routing and board campaigns remain separate experiments. This
 source update publishes no performance or logical-error results. Historical CSVs
 are available in earlier revisions and do not describe this controller. Generated
 Vitis/Vivado products stay outside Git. See [reproducibility](docs/reproducibility.md).
