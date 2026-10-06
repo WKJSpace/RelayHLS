@@ -7,8 +7,9 @@ without conflating a BP update, a checked workload, and host communication.
 
 ## Common Benchmark
 
-- Detector-fault graph: 1,008 detector rows, 9,000 candidate-fault columns,
-  7,349 active columns, and 8,064 edges.
+- Detector-fault graph dimensions: 1,008 detector rows, 9,000 candidate-fault
+  slots and 8,064 edges. The C8/V16 variant has 7,961 active columns; both
+  C16 variants have 7,349.
 - CN degree: eight for every detector row.
 - Maximum VN degree: eight.
 - Message format: four-bit magnitude plus sign; posterior storage adds three
@@ -16,9 +17,13 @@ without conflating a BP update, a checked workload, and host communication.
 - Banking: 64 banks for edge, prior, posterior, and packed binary state.
 - Clock target: 10 ns on `xcvu9p-flga2104-2L-e`.
 
-The synthetic graph is deterministic. It is intended to isolate the
-architecture-level effect of CNU/VNU scaling while retaining a large,
-nontrivial sparse graph; it is not a circuit-level logical-error benchmark.
+The synthetic generator is deterministic for a given configuration.
+Its placement constraints depend on the parallelism settings, so C8 and
+C16 do not share an identical topology. These committed artifacts support
+equal-size synthetic workload comparisons; they do not establish a
+topology-matched ablation or circuit-level logical-error performance.
+See [constant generation](graph_generation.md) for the inactive-column
+handling and the existing differences between renderers and committed headers.
 
 ## Fixed-Work Normalization
 

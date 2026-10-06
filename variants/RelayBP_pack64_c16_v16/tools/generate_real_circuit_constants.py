@@ -363,22 +363,7 @@ def render_real_tail(graph):
 
     a_row_degrees = [len(row) for row in logical_rows]
     a_neighbors = [fake._pad(sorted(row), fake.A_MAX_ROW_DEGREE) for row in logical_rows]
-    a_csr_row_ptr = [0]
-    a_csr_col_idx = []
-    for row in logical_rows:
-        a_csr_col_idx.extend(sorted(row))
-        a_csr_row_ptr.append(len(a_csr_col_idx))
-    if not a_csr_col_idx:
-        a_csr_col_idx = [0]
-
     return "\n".join([
-        "// ================================================================",
-        "// Runtime priors",
-        "// ================================================================",
-        "// The HLS top uses packed prior input words. PRIOR_INIT remains only",
-        "// for compatibility with code paths that include constants.h directly.",
-        "constexpr int PRIOR_INIT[NUM_FAULTS] = {};",
-        "",
         "// ================================================================",
         "// A~ logical action matrix",
         "// ================================================================",
@@ -386,18 +371,10 @@ def render_real_tail(graph):
         "",
         fake._format_2d_array("A_ROW_NEIGHBORS", "K_OBSERVABLES][A_MAX_ROW_DEGREE", a_neighbors),
         "",
-        fake._format_flat_array("A_CSR_ROW_PTR", "K_OBSERVABLES + 1", a_csr_row_ptr),
-        "",
-        fake._format_flat_array("A_CSR_COL_IDX", "A_NUM_NONZEROS", a_csr_col_idx),
-        "",
         "// ================================================================",
         "// Dummy masks",
         "// ================================================================",
         "constexpr int COMMIT_MASK[NUM_FAULTS] = {};",
-        "constexpr int CONVERGENCE_MASK[NUM_DETECTORS] = {};",
-        "",
-        "// Carry-out rows",
-        "constexpr int CARRY_OUT_ROWS[CARRY_SIZE] = {};",
         "",
         "#endif  // CONSTANTS_H",
         "",

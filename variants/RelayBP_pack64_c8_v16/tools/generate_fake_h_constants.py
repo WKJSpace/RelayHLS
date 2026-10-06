@@ -705,26 +705,15 @@ def render_preamble():
 def render_tail():
     return "\n".join([
         "// ================================================================",
-        "// Dummy priors",
-        "// ================================================================",
-        "constexpr int PRIOR_INIT[NUM_FAULTS] = {};",
-        "",
-        "// ================================================================",
         "// Dummy A~ logical action matrix",
         "// ================================================================",
         "constexpr int A_ROW_DEGREES[K_OBSERVABLES] = {};",
         "constexpr int A_ROW_NEIGHBORS[K_OBSERVABLES][A_MAX_ROW_DEGREE] = {};",
-        "constexpr int A_CSR_ROW_PTR[K_OBSERVABLES + 1] = {};",
-        "constexpr int A_CSR_COL_IDX[A_NUM_NONZEROS] = {};",
         "",
         "// ================================================================",
         "// Dummy masks",
         "// ================================================================",
         "constexpr int COMMIT_MASK[NUM_FAULTS] = {};",
-        "constexpr int CONVERGENCE_MASK[NUM_DETECTORS] = {};",
-        "",
-        "// Carry-out rows",
-        "constexpr int CARRY_OUT_ROWS[CARRY_SIZE] = {};",
         "",
         "#endif  // CONSTANTS_H",
         "",
@@ -744,13 +733,7 @@ def render_generated_section(matrix):
     edge_for_check = [_pad([edge.edge_idx for edge in row], H_MAX_ROW_DEGREE) for row in row_edges]
     edge_for_var = [_pad([edge.edge_idx for edge in col], H_MAX_COL_DEGREE) for col in col_edges]
 
-    bank_for_check = [_pad([edge.bank for edge in row], H_MAX_ROW_DEGREE) for row in row_edges]
-    addr_for_check = [_pad([edge.addr for edge in row], H_MAX_ROW_DEGREE) for row in row_edges]
-    bank_for_var = [_pad([edge.bank for edge in col], H_MAX_COL_DEGREE) for col in col_edges]
-    addr_for_var = [_pad([edge.addr for edge in col], H_MAX_COL_DEGREE) for col in col_edges]
-
     row_neighbors = [_pad([edge.var_idx for edge in row], H_MAX_ROW_DEGREE) for row in row_edges]
-    col_neighbors = [_pad([edge.check_idx for edge in col], H_MAX_COL_DEGREE) for col in col_edges]
     cnu_schedule = build_bank_major_schedule(
         matrix.num_detectors, CNU_PARALLEL, matrix.edges_by_row)
     cnu_lane_slot_schedule = build_lane_slot_schedule(
@@ -819,12 +802,6 @@ def render_generated_section(matrix):
             values.append(group_values)
         return values
 
-    csr_row_ptr = [0]
-    csr_col_idx = []
-    for row in row_edges:
-        csr_col_idx.extend(edge.var_idx for edge in row)
-        csr_row_ptr.append(len(csr_col_idx))
-
     parts = [
         "// ================================================================",
         "// Synthetic generated H~ arrays",
@@ -844,14 +821,6 @@ def render_generated_section(matrix):
         _format_2d_array("EDGE_FOR_CHECK_POS", "NUM_DETECTORS][H_MAX_ROW_DEGREE", edge_for_check),
         "",
         _format_2d_array("EDGE_FOR_VAR_POS", "NUM_FAULTS][H_MAX_COL_DEGREE", edge_for_var),
-        "",
-        _format_2d_array("EDGE_BANK_FOR_CHECK_POS", "NUM_DETECTORS][H_MAX_ROW_DEGREE", bank_for_check),
-        "",
-        _format_2d_array("EDGE_ADDR_FOR_CHECK_POS", "NUM_DETECTORS][H_MAX_ROW_DEGREE", addr_for_check),
-        "",
-        _format_2d_array("EDGE_BANK_FOR_VAR_POS", "NUM_FAULTS][H_MAX_COL_DEGREE", bank_for_var),
-        "",
-        _format_2d_array("EDGE_ADDR_FOR_VAR_POS", "NUM_FAULTS][H_MAX_COL_DEGREE", addr_for_var),
         "",
         "constexpr int CNU_EDGE_GROUPS = (NUM_DETECTORS + CNU_PARALLEL - 1) / CNU_PARALLEL;",
         "constexpr int VNU_EDGE_GROUPS = NUM_FAULT_WORDS * (PACK_BITS / VNU_PARALLEL);",
@@ -937,12 +906,6 @@ def render_generated_section(matrix):
         "",
         _format_2d_array("H_ROW_NEIGHBORS", "NUM_DETECTORS][H_MAX_ROW_DEGREE", row_neighbors),
         "",
-        _format_2d_array("H_COL_NEIGHBORS", "NUM_FAULTS][H_MAX_COL_DEGREE", col_neighbors),
-        "",
-        "// CSR form of H~",
-        _format_flat_array("H_CSR_ROW_PTR", "NUM_DETECTORS + 1", csr_row_ptr),
-        "",
-        _format_flat_array("H_CSR_COL_IDX", "NUM_NONZEROS", csr_col_idx),
     ]
     return "\n".join(parts) + "\n"
 
