@@ -1,11 +1,9 @@
 # Graph Constants and Their Consumers
 
-This describes the public RelayHLS implementation based on commit
-`3b8b7ffc943b19626f38cafa517949304a488067`. The cleanup removes unused
-representations. All decoder files, interfaces, configurations, retained
-constants and historical result files are preserved. Separately corrected
-ARC experiment sources are maintained on Supernova and are not replaced
-by this public artifact.
+This describes the ARC2027 RelayHLS source revision. The graph topology,
+edge schedules and packed interfaces are retained from the public artifact.
+The ARC controller corrects the later-leg bypass and uses the full forty-update
+default budget. Unused constant representations are omitted.
 
 ## 1. Disconnected candidate-fault columns
 
@@ -29,7 +27,7 @@ The following behavior already exists in the decoder:
 - `vnu_pass` starts each packed decision word at zero and invokes the VNU
   only when `j < NUM_FAULTS && H_COL_DEGREES[j] > 0`. Inactive bits remain
   zero; their marginals are not updated by the VNU.
-- `compute_weight` traverses `ACTIVE_FAULT_INDEX`, which contains only
+- `compute_weight` accumulates one lane per prior bank and includes only
   columns with positive degree. Inactive columns contribute no cost.
 - The decoder clears the best estimate before decoding. Inactive columns
   therefore remain zero in its correction estimate.
@@ -169,52 +167,26 @@ The committed synthetic A tables and commit mask are zero placeholders.
 `COMMIT_C * M_PER_CYCLE`. The cleanup preserves all of these values and
 operations.
 
-## Existing regeneration differences
+## Regeneration contract
 
-The current renderers already emit `FIFO_DEPTH = WINDOW_W + 2` and
-`PRIOR_WORD_BITS = 6 * PRIOR_PACK_FACTOR`, omit `NUM_PRIOR_WORDS`, and emit
-extra `CNU_LANE_EDGE_*` / `VNU_LANE_EDGE_*` arrays. Committed headers use
-`FIFO_DEPTH = WINDOW_W + COMMIT_C`, the message-width prior ABI and
-`NUM_PRIOR_WORDS`, and do not contain those lane arrays.
+Both renderers use `FIFO_DEPTH = WINDOW_W + COMMIT_C`,
+`PRIOR_WORD_BITS = PRIOR_PACK_FACTOR * MSG_INT_BITS`, and
+`NUM_PRIOR_WORDS = ceil(NUM_FAULTS / PRIOR_PACK_FACTOR)`. They emit the bank-major
+schedules consumed by the kernels. Unused lane-major duplicate schedules, dummy
+priors, CSR duplicates and unused convergence/carry placeholders are omitted.
+The shared ARC contract compares all generated synthetic arrays with the committed
+arrays and checks the packed-prior declarations for both renderers.
 
-The cleanup intentionally preserves each version's existing retained
-declarations. Its tests lock separate signatures for committed headers
-and synthetic renderer output. This is not a repair of the existing
-regeneration differences: generate into a separate `--output` path and
-review the ABI and configuration before replacing a committed header.
+Generate into a separate `--output` path when adapting a graph. Review the
+configuration and graph-dependent metadata before selecting it for synthesis.
+The generic real-graph importer supplies logical adjacency, but its commit mask
+is a zero placeholder. A physical streaming application must supply its actual
+commit ownership and detector/carry coordinates; importing an adjacency graph
+alone does not define those semantics.
 
 ## Verification boundary
 
-The cleanup is checked against the public baseline on Supernova with
-retained-declaration comparisons, protected-file hashes, original generator
-tests, cleanup contracts, native C++ testbenches and deterministic traces.
-Compiled native decoder equality strengthens the behavior-preservation
-check. It does not constitute new HLS synthesis, routed timing or physical
-VCU118 measurement. Existing ARC experiment sources and running jobs use
-their existing frozen files.
-
-### Completed cleanup checks (2026-10-06)
-
-- All three variants retain 84 constant declarations byte for byte.
-  Header content outside the removed declarations is token-identical after
-  ignoring comments and whitespace. There are no header additions.
-- 53 protected implementation/configuration/result files match their baseline
-  hashes. Non-rendering generator code has identical Python ASTs.
-- All 81 generator and cleanup tests pass (27 per variant). The cleanup
-  absence checks first failed against the unchanged baseline, while its
-  retained-constant signature checks passed.
-- Each original native C++ testbench passes before and after cleanup.
-- Across 32 cases per variant, all 96 paired traces are identical. Each
-  trace includes four BP updates with all scheduled edge messages,
-  marginals, hard decisions, cost and convergence results, followed by the
-  controller and top-level outputs. Inactive hard-decision bits remain zero.
-- Optimized native decoder objects, testbench executables and trace
-  executables are byte-identical for every variant.
-- The two inspected corrected ARC controllers retain their prior hashes.
-  Verification writes are confined to a separate cleanup directory.
-- Twelve unused declarations are removed from each committed header,
-  saving 1,022,856 bytes per variant (3,068,568 bytes total).
-
-These checks preserve the public implementation's existing behavior,
-including its historical settings. They do not promote the public artifact
-to the separately corrected ARC version or establish new routed measurements.
+The source tests cover generator schedules, the packed-prior ABI, independent
+scalar full-top outputs, carried state at each leg start, candidate costs and
+fixed-point bias arithmetic. HLS synthesis and RTL/physical evaluation are separate
+steps. Experimental results are not included while the ARC campaigns are running.

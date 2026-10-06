@@ -29,6 +29,62 @@ inline Prior read_prior_banked(
     return priors[j % PRIOR_BANK_FACTOR][j / PRIOR_BANK_FACTOR];
 }
 
+// Bank-parallel weight accumulation.  PRIOR_BANK_FACTOR is equal to PACK_BITS
+// in this design, so one address step covers one packed hard-decision word.
+inline WEIGHT compute_weight_parallel(
+    const PackedBits hard_decisions[NUM_FAULT_WORDS],
+    const Prior      priors[PRIOR_BANK_FACTOR][PRIOR_BANK_DEPTH]
+) {
+// clang-format off
+    #pragma HLS INLINE off
+    #pragma HLS ARRAY_PARTITION variable=priors dim=1 type=complete
+    // clang-format on
+    static_assert(PRIOR_BANK_FACTOR == PACK_BITS,
+                  "bank-parallel weight assumes one prior bank per hard-decision bit");
+
+    WEIGHT lane_sums[PRIOR_BANK_FACTOR];
+// clang-format off
+    #pragma HLS ARRAY_PARTITION variable=lane_sums dim=1 type=complete
+    // clang-format on
+
+    WEIGHT_CLEAR_LANES:
+    for (int bank = 0; bank < PRIOR_BANK_FACTOR; bank++) {
+// clang-format off
+        #pragma HLS UNROLL
+        // clang-format on
+        lane_sums[bank] = 0;
+    }
+
+    WEIGHT_ADDRS:
+    for (int addr = 0; addr < PRIOR_BANK_DEPTH; addr++) {
+// clang-format off
+        #pragma HLS PIPELINE II=1
+        // clang-format on
+        PackedBits hd_word = (addr < NUM_FAULT_WORDS) ? hard_decisions[addr] : (PackedBits)0;
+
+        WEIGHT_BANKS:
+        for (int bank = 0; bank < PRIOR_BANK_FACTOR; bank++) {
+// clang-format off
+            #pragma HLS UNROLL
+            // clang-format on
+            int j = addr * PRIOR_BANK_FACTOR + bank;
+            if ((j < NUM_FAULTS) && (H_COL_DEGREES[j] > 0) && hd_word[bank]) {
+                lane_sums[bank] += (WEIGHT)priors[bank][addr];
+            }
+        }
+    }
+
+    WEIGHT total = 0;
+    WEIGHT_REDUCE_LANES:
+    for (int bank = 0; bank < PRIOR_BANK_FACTOR; bank++) {
+// clang-format off
+        #pragma HLS UNROLL
+        // clang-format on
+        total += lane_sums[bank];
+    }
+    return total;
+}
+
 // Picking the best solution.
 inline WEIGHT compute_weight(
     const PackedBits hard_decisions[NUM_FAULT_WORDS],
@@ -37,19 +93,7 @@ inline WEIGHT compute_weight(
 // clang-format off
     #pragma HLS INLINE off
     // clang-format on
-    WEIGHT w = 0;
-
-    WEIGHT_ACTIVE_FAULTS:
-    for (int active = 0; active < NUM_ACTIVE_FAULTS; active++) {
-// clang-format off
-        #pragma HLS PIPELINE II=1
-        // clang-format on
-        int j = ACTIVE_FAULT_INDEX[active];
-        if (get_packed_bit(hard_decisions, j)) {
-            w += (WEIGHT)read_prior_banked(priors, j);
-        }
-    }
-    return w;
+    return compute_weight_parallel(hard_decisions, priors);
 }
 
 // Initialize the messages and marginals to priors.
@@ -154,6 +198,7 @@ inline bool run_dmem_bp_leg(
     BetaInt          beta_int,
     MemShift         mem_shift,
     int              max_iters,
+    bool             is_initial_leg,
     int&             iters_used
 ) {
 // clang-format off
@@ -168,7 +213,7 @@ inline bool run_dmem_bp_leg(
         #pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_ITERS_PER_LEG
         // clang-format on
         AlphaShift alpha_shift = (t < ALPHA_SHIFT_MAX) ? (AlphaShift)t : (AlphaShift)ALPHA_SHIFT_MAX;
-        bool is_first = (t == 0);
+        bool is_first = is_initial_leg && (t == 0);
 
         bp_iteration(
             v_to_c, c_to_v, syndrome, priors,
@@ -249,7 +294,7 @@ inline bool relay_bp_decode(
         bool converged = run_dmem_bp_leg(
             v_to_c, c_to_v, syndrome, priors,
             marginals, hard_decisions, beta,
-            MEM_SHIFT, leg_iters, iters_this_leg);
+            MEM_SHIFT, leg_iters, r == 0, iters_this_leg);
 
         total_iters += iters_this_leg;
 

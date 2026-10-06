@@ -87,7 +87,7 @@ constexpr int LEG_BETA[MAX_LEGS] = {
 constexpr int ALPHA_SHIFT_MAX = 4;
 
 constexpr int MAX_ITERS_PER_LEG = 10;
-constexpr int GLOBAL_MAX_ITERS = 10;
+constexpr int GLOBAL_MAX_ITERS = 40;
 constexpr int CONVERGENCE_CHECK_INTERVAL = 2;
 constexpr int MAX_SOLUTIONS     = 2;
 constexpr int MAX_TOTAL_ITERS   = MAX_LEGS * MAX_ITERS_PER_LEG;
@@ -188,6 +188,8 @@ static_assert(MEM_SHIFT < 31, "MEM_SHIFT must fit int shifts");
 static_assert(MEM_SCALE == (1 << MEM_SHIFT),
               "MEM_SCALE must match MEM_SHIFT");
 static_assert(MAX_LEGS > 0, "MAX_LEGS must be positive");
+static_assert(MAX_LEGS == 4, "ARC leg schedule requires four strengths");
+static_assert(MEM_SHIFT == 3, "ARC strengths use denominator eight");
 static_assert(MAX_ITERS_PER_LEG > 0, "MAX_ITERS_PER_LEG must be positive");
 static_assert(GLOBAL_MAX_ITERS > 0, "GLOBAL_MAX_ITERS must be positive");
 static_assert(MAX_TOTAL_ITERS == MAX_LEGS * MAX_ITERS_PER_LEG,

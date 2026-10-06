@@ -11,3 +11,7 @@ The generators and static checks should keep the following constraints valid:
 - `relaybp_top` is the only supported HLS top function for these variants.
 
 When adapting a real quantum-circuit simulator result, regenerate constants through `tools/generate_real_circuit_constants.py`, save the generator configuration in `configs/`, then run generator tests and C simulation before synthesis.
+
+The ARC strengths are fixed to four pairs with denominator eight:
+`MAX_LEGS == 4` and `MEM_SHIFT == 3`. Generators reject inconsistent
+values. Update budgets and candidate limits remain configuration parameters.

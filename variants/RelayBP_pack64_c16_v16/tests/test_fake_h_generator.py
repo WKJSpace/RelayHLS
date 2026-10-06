@@ -38,7 +38,7 @@ class FakeHGeneratorTest(unittest.TestCase):
 
     def test_variant_uses_global_ten_iteration_budget(self):
         self.assertEqual(self.mod.MAX_ITERS_PER_LEG, 10)
-        self.assertEqual(self.mod.GLOBAL_MAX_ITERS, 10)
+        self.assertEqual(self.mod.GLOBAL_MAX_ITERS, 40)
         self.assertEqual(self.mod.CONVERGENCE_CHECK_INTERVAL, 2)
         self.assertEqual(self.mod.CNU_PARALLEL, self.mod.DEFAULT_CONFIG["CNU_PARALLEL"])
         self.assertEqual(self.mod.VNU_PARALLEL, self.mod.DEFAULT_CONFIG["VNU_PARALLEL"])

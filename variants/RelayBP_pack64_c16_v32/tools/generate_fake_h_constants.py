@@ -36,7 +36,7 @@ BASE_CONFIG = {
     "MEM_SHIFT": 3,
     "MAX_LEGS": 4,
     "MAX_ITERS_PER_LEG": 10,
-    "GLOBAL_MAX_ITERS": 10,
+    "GLOBAL_MAX_ITERS": 40,
     "CONVERGENCE_CHECK_INTERVAL": 2,
     "MAX_SOLUTIONS": 2,
     "WEIGHT_BITS": 20,
@@ -94,8 +94,8 @@ PARAMETER_HINTS = {
     "CNU_PARALLEL": "Check-node lanes. Valid examples: 8 or 16. Higher values need bank-conflict validation.",
     "VNU_PARALLEL": "Variable-node lanes. Must divide PACK_BITS. Valid examples: 16 or 32.",
     "CONVERGENCE_PARALLEL": "Detector convergence lanes. Usually match CNU_PARALLEL for balanced detector banking.",
-    "MAX_ITERS_PER_LEG": "Per-LEG safety cap. Current IBM-comparison design keeps 10.",
-    "GLOBAL_MAX_ITERS": "Total BP iterations across all 4 LEG strengths. IBM criterion here is 10.",
+    "MAX_ITERS_PER_LEG": "Maximum BP updates per leg; the ARC default is 10.",
+    "GLOBAL_MAX_ITERS": "Total BP-update budget across four legs; the ARC default is 40.",
     "CONVERGENCE_CHECK_INTERVAL": "Check interval in iterations. Current design checks every 2 iterations.",
 }
 
@@ -209,6 +209,10 @@ def validate_config(config):
         errors.append("PACK_BITS should be a power of two")
     if cfg["BANK_PORTS"] != 2:
         errors.append("BANK_PORTS must remain 2 for true dual-port BRAM scheduling")
+    if cfg["MAX_LEGS"] != 4:
+        errors.append("MAX_LEGS must be 4 for the fixed ARC leg schedule")
+    if cfg["MEM_SHIFT"] != 3:
+        errors.append("MEM_SHIFT must be 3 for eighth-based ARC strengths")
     if cfg["GLOBAL_MAX_ITERS"] > cfg["MAX_LEGS"] * cfg["MAX_ITERS_PER_LEG"]:
         errors.append("GLOBAL_MAX_ITERS cannot exceed MAX_LEGS * MAX_ITERS_PER_LEG")
     if cfg["CONVERGENCE_CHECK_INTERVAL"] > cfg["GLOBAL_MAX_ITERS"]:
@@ -247,7 +251,7 @@ def apply_config(config):
     globals_dict["CARRY_WORDS"] = _ceil_div(cfg["M_PER_CYCLE"], cfg["PACK_BITS"])
     globals_dict["EDGE_BANK_DEPTH"] = _ceil_div(NUM_EDGES, cfg["EDGE_BANK_FACTOR"])
     globals_dict["PRIOR_BANK_DEPTH"] = _ceil_div(cfg["NUM_FAULTS"], cfg["PRIOR_BANK_FACTOR"])
-    globals_dict["PRIOR_WORD_BITS"] = 6 * cfg["PRIOR_PACK_FACTOR"]
+    globals_dict["PRIOR_WORD_BITS"] = cfg["MSG_INT_BITS"] * cfg["PRIOR_PACK_FACTOR"]
     globals_dict["SCALE_ONE_FIXED"] = 1 << cfg["SCALE_FRAC_BITS"]
     globals_dict["POST_MAG_BITS"] = cfg["MSG_INT_BITS"] + cfg["POST_EXTRA_BITS"]
     globals_dict["POST_TOTAL_BITS"] = POST_MAG_BITS + 1
@@ -496,39 +500,6 @@ def build_bank_major_schedule(node_count, group_size, edges_by_node, group_count
     return schedule
 
 
-def build_lane_slot_schedule(node_count, group_size, max_degree, edges_by_node, group_count=None):
-    minimum_group_count = (node_count + group_size - 1) // group_size
-    if group_count is None:
-        group_count = minimum_group_count
-    if group_count < minimum_group_count:
-        raise AssertionError("schedule has fewer groups than required")
-    schedule = []
-    for group in range(group_count):
-        lanes = []
-        group_base = group * group_size
-        bank_counts = [0 for _ in range(EDGE_BANK_FACTOR)]
-        for lane in range(group_size):
-            node = group_base + lane
-            entries = []
-            if node < node_count:
-                node_edges = edges_by_node[node]
-                if len(node_edges) > max_degree:
-                    raise AssertionError("node degree exceeds max_degree")
-                for slot, edge in enumerate(node_edges):
-                    bank_counts[edge.bank] += 1
-                    entries.append(ScheduledEdge(True, edge, lane, slot))
-            entries.extend([ScheduledEdge(False, None, lane, len(entries))]
-                           * (max_degree - len(entries)))
-            lanes.append(entries)
-        for bank, count in enumerate(bank_counts):
-            if count > BANK_PORTS:
-                raise AssertionError(
-                    "lane-slot schedule conflict: group=%d bank=%d accesses=%d" %
-                    (group, bank, count))
-        schedule.append(lanes)
-    return schedule
-
-
 def build_detector_schedule(matrix):
     schedule = []
     group_count = (matrix.num_detectors + CONVERGENCE_PARALLEL - 1) // CONVERGENCE_PARALLEL
@@ -619,7 +590,7 @@ def render_preamble():
         "// Decoder constants",
         "constexpr int W = WINDOW_W;",
         "constexpr int C = COMMIT_C;",
-        "constexpr int FIFO_DEPTH = WINDOW_W + 2;",
+        "constexpr int FIFO_DEPTH = WINDOW_W + COMMIT_C;",
         "",
         "// Matrix degree caps",
         "constexpr int H_MAX_ROW_DEGREE = %d;" % H_MAX_ROW_DEGREE,
@@ -649,7 +620,8 @@ def render_preamble():
         "constexpr int MSG_INT_BITS = %d;" % MSG_INT_BITS,
         "constexpr int MSG_MAX_MAG  = (1 << MSG_INT_BITS) - 1;",
         "constexpr int PRIOR_PACK_FACTOR = %d;" % PRIOR_PACK_FACTOR,
-        "constexpr int PRIOR_WORD_BITS   = 6 * PRIOR_PACK_FACTOR;",
+        "constexpr int PRIOR_WORD_BITS   = PRIOR_PACK_FACTOR * MSG_INT_BITS;",
+        "constexpr int NUM_PRIOR_WORDS   = (NUM_FAULTS + PRIOR_PACK_FACTOR - 1) / PRIOR_PACK_FACTOR;",
         "constexpr float SCALE_S = %.1ff;" % (float(SCALE_S_FIXED) / float(SCALE_ONE_FIXED)),
         "constexpr int SCALE_FRAC_BITS = %d;" % SCALE_FRAC_BITS,
         "constexpr int SCALE_ONE_FIXED = 1 << SCALE_FRAC_BITS;",
@@ -695,6 +667,8 @@ def render_preamble():
         "static_assert(PRIOR_BANK_FACTOR == PRIOR_PACK_FACTOR, \"prior banks must match prior pack lanes\");",
         "static_assert(EDGE_BANK_FACTOR >= CNU_PARALLEL * 2, \"CNU schedule assumes enough dual-port edge banks\");",
         "static_assert(EDGE_BANK_FACTOR >= VNU_PARALLEL, \"VNU schedule assumes enough edge banks\");",
+        "static_assert(MAX_LEGS == 4, \"ARC leg schedule requires four strengths\");",
+        "static_assert(MEM_SHIFT == 3, \"ARC strengths use denominator eight\");",
         "static_assert(GLOBAL_MAX_ITERS <= MAX_TOTAL_ITERS, \"global iteration budget exceeds LEG budget\");",
         "static_assert(CONVERGENCE_CHECK_INTERVAL > 0, \"convergence interval must be positive\");",
         "static_assert(CARRY_DETECTOR_START + CARRY_SIZE <= NUM_DETECTORS, \"carry window exceeds detector window\");",
@@ -736,13 +710,8 @@ def render_generated_section(matrix):
     row_neighbors = [_pad([edge.var_idx for edge in row], H_MAX_ROW_DEGREE) for row in row_edges]
     cnu_schedule = build_bank_major_schedule(
         matrix.num_detectors, CNU_PARALLEL, matrix.edges_by_row)
-    cnu_lane_slot_schedule = build_lane_slot_schedule(
-        matrix.num_detectors, CNU_PARALLEL, H_MAX_ROW_DEGREE, matrix.edges_by_row)
     vnu_schedule = build_bank_major_schedule(
         matrix.num_faults, VNU_PARALLEL, matrix.edges_by_col,
-        NUM_FAULT_WORDS * (PACK_BITS // VNU_PARALLEL))
-    vnu_lane_slot_schedule = build_lane_slot_schedule(
-        matrix.num_faults, VNU_PARALLEL, H_MAX_COL_DEGREE, matrix.edges_by_col,
         NUM_FAULT_WORDS * (PACK_BITS // VNU_PARALLEL))
     detector_schedule = build_detector_schedule(matrix)
 
@@ -761,26 +730,6 @@ def render_generated_section(matrix):
                         value = getattr(entry, field) if entry.valid else 0
                     port_values.append(value)
                 group_values.append(port_values)
-            values.append(group_values)
-        return values
-
-    def lane_slot_values(schedule, field):
-        values = []
-        for group in schedule:
-            group_values = []
-            for lane_entries in group:
-                slot_values = []
-                for entry in lane_entries:
-                    if field == "valid":
-                        value = int(entry.valid)
-                    elif field == "bank":
-                        value = entry.edge.bank if entry.valid else 0
-                    elif field == "addr":
-                        value = entry.edge.addr if entry.valid else 0
-                    else:
-                        value = getattr(entry, field) if entry.valid else 0
-                    slot_values.append(value)
-                group_values.append(slot_values)
             values.append(group_values)
         return values
 
@@ -853,18 +802,6 @@ def render_generated_section(matrix):
             schedule_values(cnu_schedule, "addr")),
         "",
         _format_3d_array(
-            "CNU_LANE_EDGE_VALID", "CNU_EDGE_GROUPS][CNU_PARALLEL][H_MAX_ROW_DEGREE",
-            lane_slot_values(cnu_lane_slot_schedule, "valid")),
-        "",
-        _format_3d_array(
-            "CNU_LANE_EDGE_BANK", "CNU_EDGE_GROUPS][CNU_PARALLEL][H_MAX_ROW_DEGREE",
-            lane_slot_values(cnu_lane_slot_schedule, "bank")),
-        "",
-        _format_3d_array(
-            "CNU_LANE_EDGE_ADDR", "CNU_EDGE_GROUPS][CNU_PARALLEL][H_MAX_ROW_DEGREE",
-            lane_slot_values(cnu_lane_slot_schedule, "addr")),
-        "",
-        _format_3d_array(
             "VNU_EDGE_VALID", "VNU_EDGE_GROUPS][EDGE_BANK_FACTOR][EDGE_BANK_PORTS",
             schedule_values(vnu_schedule, "valid")),
         "",
@@ -879,18 +816,6 @@ def render_generated_section(matrix):
         _format_3d_array(
             "VNU_EDGE_ADDR", "VNU_EDGE_GROUPS][EDGE_BANK_FACTOR][EDGE_BANK_PORTS",
             schedule_values(vnu_schedule, "addr")),
-        "",
-        _format_3d_array(
-            "VNU_LANE_EDGE_VALID", "VNU_EDGE_GROUPS][VNU_PARALLEL][H_MAX_COL_DEGREE",
-            lane_slot_values(vnu_lane_slot_schedule, "valid")),
-        "",
-        _format_3d_array(
-            "VNU_LANE_EDGE_BANK", "VNU_EDGE_GROUPS][VNU_PARALLEL][H_MAX_COL_DEGREE",
-            lane_slot_values(vnu_lane_slot_schedule, "bank")),
-        "",
-        _format_3d_array(
-            "VNU_LANE_EDGE_ADDR", "VNU_EDGE_GROUPS][VNU_PARALLEL][H_MAX_COL_DEGREE",
-            lane_slot_values(vnu_lane_slot_schedule, "addr")),
         "",
         _format_3d_array(
             "DET_EDGE_VALID", "DET_EDGE_GROUPS][PACKED_BANK_FACTOR][DET_BANK_PORTS",

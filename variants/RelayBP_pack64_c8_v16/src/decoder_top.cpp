@@ -106,7 +106,17 @@ static void decode_window_stage(
 // clang-format off
     #pragma HLS INLINE off
     // clang-format on
-    WindowResult result = decode_window(local_syndrome, local_carry_in, local_priors, local_e_hat);
+    // Publish only after the decoder has finished reading its working state.
+    PackedBits decoded_estimate[NUM_FAULT_WORDS];
+    #pragma HLS BIND_STORAGE variable=decoded_estimate type=ram_2p impl=bram
+    #pragma HLS ARRAY_PARTITION variable=decoded_estimate dim=1 type=cyclic factor=PACKED_BANK_FACTOR
+    WindowResult result = decode_window(local_syndrome, local_carry_in, local_priors, decoded_estimate);
+
+    PUBLISH_CORRECTION:
+    for (int word = 0; word < NUM_FAULT_WORDS; word++) {
+        #pragma HLS PIPELINE II=1
+        local_e_hat[word] = decoded_estimate[word];
+    }
 
     *delta_f_out = result.delta_f;
     *iterations_used = result.iterations_used;

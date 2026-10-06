@@ -14,8 +14,7 @@ RelayHLS/
     RelayBP_pack64_c16_v32/
   scripts/
   docs/
-    figures/
-  results/
+  tests/
 ```
 
 Each variant can be opened directly in Vitis because it contains `vitis-comp.json` and `hls_config.cfg`.

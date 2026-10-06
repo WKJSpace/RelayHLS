@@ -140,121 +140,112 @@ inline void vnu_pass(
     #pragma HLS ARRAY_PARTITION variable=VNU_EDGE_ADDR  dim=3 type=complete
     // clang-format on
 
-    VNU_WORDS:
-    for (int word = 0; word < NUM_FAULT_WORDS; word++) {
-        HardDecision hd_bits[PACK_BITS];
+    // Flattened single-pipeline VNU: one continuous pipeline over all
+    // VNU_EDGE_GROUPS groups.  Each group processes VNU_PARALLEL lanes and
+    // issues at most EDGE_BANK_PORTS accesses per bank.
+    constexpr int GROUPS_PER_WORD = PACK_BITS / VNU_PARALLEL;
+
+    ap_uint<PACK_BITS> hd_word_acc = 0;
+
+    VNU_GROUPS:
+    for (int group = 0; group < VNU_EDGE_GROUPS; group++) {
 // clang-format off
-        #pragma HLS ARRAY_PARTITION variable=hd_bits dim=1 type=complete
+        #pragma HLS PIPELINE II=1
+        // clang-format on
+        Message in[VNU_PARALLEL][H_MAX_COL_DEGREE];
+        Message out[VNU_PARALLEL][H_MAX_COL_DEGREE];
+// clang-format off
+        #pragma HLS ARRAY_PARTITION variable=in  dim=1 type=complete
+        #pragma HLS ARRAY_PARTITION variable=in  dim=2 type=complete
+        #pragma HLS ARRAY_PARTITION variable=out dim=1 type=complete
+        #pragma HLS ARRAY_PARTITION variable=out dim=2 type=complete
         // clang-format on
 
-        INIT_HD_BITS:
-        for (int bit = 0; bit < PACK_BITS; bit++) {
+        VNU_CLEAR_LANES:
+        for (int lane = 0; lane < VNU_PARALLEL; lane++) {
 // clang-format off
             #pragma HLS UNROLL
             // clang-format on
-            hd_bits[bit] = 0;
-        }
-
-        VNU_LANE_GROUPS:
-        for (int lane_base = 0; lane_base < PACK_BITS; lane_base += VNU_PARALLEL) {
-// clang-format off
-            #pragma HLS PIPELINE II=1
-            // clang-format on
-            Message in[VNU_PARALLEL][H_MAX_COL_DEGREE];
-            Message out[VNU_PARALLEL][H_MAX_COL_DEGREE];
-// clang-format off
-            #pragma HLS ARRAY_PARTITION variable=in  dim=1 type=complete
-            #pragma HLS ARRAY_PARTITION variable=in  dim=2 type=complete
-            #pragma HLS ARRAY_PARTITION variable=out dim=1 type=complete
-            #pragma HLS ARRAY_PARTITION variable=out dim=2 type=complete
-            // clang-format on
-
-            VNU_CLEAR_LANES:
-            for (int lane = 0; lane < VNU_PARALLEL; lane++) {
+            VNU_CLEAR_SLOTS:
+            for (int k = 0; k < H_MAX_COL_DEGREE; k++) {
 // clang-format off
                 #pragma HLS UNROLL
                 // clang-format on
-                VNU_CLEAR_SLOTS:
-                for (int k = 0; k < H_MAX_COL_DEGREE; k++) {
-// clang-format off
-                    #pragma HLS UNROLL
-                    // clang-format on
-                    in[lane][k].sign = 0;
-                    in[lane][k].mag = 0;
-                }
-            }
-
-            int group = (word * PACK_BITS + lane_base) / VNU_PARALLEL;
-            VNU_GATHER_BANKS:
-            for (int bank = 0; bank < EDGE_BANK_FACTOR; bank++) {
-// clang-format off
-                #pragma HLS UNROLL
-                // clang-format on
-                VNU_GATHER_PORTS:
-                for (int port = 0; port < EDGE_BANK_PORTS; port++) {
-// clang-format off
-                    #pragma HLS UNROLL
-                    // clang-format on
-                    if (VNU_EDGE_VALID[group][bank][port]) {
-                        int lane = VNU_EDGE_LANE[group][bank][port];
-                        int slot = VNU_EDGE_SLOT[group][bank][port];
-                        int addr = VNU_EDGE_ADDR[group][bank][port];
-                        in[lane][slot] = unpack_message(c_to_v[bank][addr]);
-                    }
-                }
-            }
-
-            VNU_COMPUTE_LANES:
-            for (int lane = 0; lane < VNU_PARALLEL; lane++) {
-// clang-format off
-                #pragma HLS UNROLL
-                // clang-format on
-                int bit_lane = lane_base + lane;
-                int j = word * PACK_BITS + bit_lane;
-                if ((j < NUM_FAULTS) && (H_COL_DEGREES[j] > 0)) {
-                    HardDecision hd;
-                    Posterior nm;
-                    int prior_bank = j % PRIOR_BANK_FACTOR;
-                    int prior_addr = j / PRIOR_BANK_FACTOR;
-                    variable_node_unit_runtime(
-                        j, in[lane], priors[prior_bank][prior_addr], marginals[j],
-                        beta_int, mem_shift, is_first_iter,
-                        out[lane], hd, nm);
-
-                    hd_bits[bit_lane] = hd;
-                    marginals[j] = nm;
-                }
-            }
-
-            VNU_SCATTER_BANKS:
-            for (int bank = 0; bank < EDGE_BANK_FACTOR; bank++) {
-// clang-format off
-                #pragma HLS UNROLL
-                // clang-format on
-                VNU_SCATTER_PORTS:
-                for (int port = 0; port < EDGE_BANK_PORTS; port++) {
-// clang-format off
-                    #pragma HLS UNROLL
-                    // clang-format on
-                    if (VNU_EDGE_VALID[group][bank][port]) {
-                        int lane = VNU_EDGE_LANE[group][bank][port];
-                        int slot = VNU_EDGE_SLOT[group][bank][port];
-                        int addr = VNU_EDGE_ADDR[group][bank][port];
-                        v_to_c[bank][addr] = pack_message(out[lane][slot]);
-                    }
-                }
+                in[lane][k].sign = 0;
+                in[lane][k].mag = 0;
             }
         }
 
-        PackedBits hd_word = 0;
-        ASSEMBLE_HD_WORD:
-        for (int bit = 0; bit < PACK_BITS; bit++) {
+        VNU_GATHER_BANKS:
+        for (int bank = 0; bank < EDGE_BANK_FACTOR; bank++) {
 // clang-format off
             #pragma HLS UNROLL
             // clang-format on
-            hd_word[bit] = hd_bits[bit];
+            VNU_GATHER_PORTS:
+            for (int port = 0; port < EDGE_BANK_PORTS; port++) {
+// clang-format off
+                #pragma HLS UNROLL
+                // clang-format on
+                if (VNU_EDGE_VALID[group][bank][port]) {
+                    int lane = VNU_EDGE_LANE[group][bank][port];
+                    int slot = VNU_EDGE_SLOT[group][bank][port];
+                    int addr = VNU_EDGE_ADDR[group][bank][port];
+                    in[lane][slot] = unpack_message(c_to_v[bank][addr]);
+                }
+            }
         }
-        hard_decisions[word] = hd_word;
+
+        ap_uint<VNU_PARALLEL> hd_group = 0;
+
+        VNU_COMPUTE_LANES:
+        for (int lane = 0; lane < VNU_PARALLEL; lane++) {
+// clang-format off
+            #pragma HLS UNROLL
+            // clang-format on
+            int j = group * VNU_PARALLEL + lane;
+            if ((j < NUM_FAULTS) && (H_COL_DEGREES[j] > 0)) {
+                HardDecision hd;
+                Posterior nm;
+                int prior_bank = j % PRIOR_BANK_FACTOR;
+                int prior_addr = j / PRIOR_BANK_FACTOR;
+                variable_node_unit_runtime(
+                    j, in[lane], priors[prior_bank][prior_addr], marginals[j],
+                    beta_int, mem_shift, is_first_iter,
+                    out[lane], hd, nm);
+
+                hd_group[lane] = hd;
+                marginals[j] = nm;
+            }
+        }
+
+        VNU_SCATTER_BANKS:
+        for (int bank = 0; bank < EDGE_BANK_FACTOR; bank++) {
+// clang-format off
+            #pragma HLS UNROLL
+            // clang-format on
+            VNU_SCATTER_PORTS:
+            for (int port = 0; port < EDGE_BANK_PORTS; port++) {
+// clang-format off
+                #pragma HLS UNROLL
+                // clang-format on
+                if (VNU_EDGE_VALID[group][bank][port]) {
+                    int lane = VNU_EDGE_LANE[group][bank][port];
+                    int slot = VNU_EDGE_SLOT[group][bank][port];
+                    int addr = VNU_EDGE_ADDR[group][bank][port];
+                    v_to_c[bank][addr] = pack_message(out[lane][slot]);
+                }
+            }
+        }
+
+        // Assemble packed hard-decision words: GROUPS_PER_WORD consecutive
+        // groups fill one PACK_BITS word.  Each group writes a disjoint
+        // VNU_PARALLEL-bit slice of a carried accumulator, so there is no
+        // packed-memory read-modify-write. II=1 is a synthesis request.
+        int word_slot = group % GROUPS_PER_WORD;
+        hd_word_acc.range((word_slot + 1) * VNU_PARALLEL - 1, word_slot * VNU_PARALLEL) = hd_group;
+        if (word_slot == (GROUPS_PER_WORD - 1)) {
+            hard_decisions[group / GROUPS_PER_WORD] = (PackedBits)hd_word_acc;
+        }
     }
 }
 
