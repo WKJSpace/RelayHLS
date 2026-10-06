@@ -94,7 +94,7 @@ class FakeHGeneratorTest(unittest.TestCase):
         self.assertIn("static_assert(PACKED_BANK_FACTOR == PACK_BITS", text)
         self.assertIn("static_assert(PRIOR_PACK_FACTOR == PACK_BITS", text)
         self.assertIn("static_assert(NUM_ACTIVE_FAULTS > 0", text)
-        self.assertIn("constexpr int PRIOR_INIT[NUM_FAULTS] = {};", text)
+        self.assertNotIn("PRIOR_INIT", text)
         self.assertTrue(text.rstrip().endswith("#endif  // CONSTANTS_H"))
 
     def test_rewrite_constants_can_target_temp_output(self):

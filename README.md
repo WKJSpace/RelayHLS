@@ -39,8 +39,10 @@ scripts.
 | `RelayBP_pack64_c16_v32` | 16 | 32 | 16 | Lowest-latency evaluated point |
 
 All three variants use 64-bit packed binary interfaces, 64 message-memory
-banks, four-bit message magnitudes, and the same deterministic
-1,008-detector/9,000-candidate-fault/8,064-edge benchmark graph. Each directory
+banks, four-bit message magnitudes, and deterministic synthetic benchmarks
+with 1,008 detectors, 9,000 candidate-fault slots and 8,064 edges. The C8
+variant has 7,961 active columns; both C16 variants have 7,349. These are
+equal-size workloads; the C8 and C16 graph topologies differ. Each directory
 is self-contained so its Vitis project and generated constants can be opened,
 validated, and implemented independently.
 
@@ -97,10 +99,14 @@ Each variant provides two generator entry points:
 - `tools/generate_real_circuit_constants.py` imports a detector-fault graph
   derived from a circuit model.
 
-Keep the selected parameters in `configs/constants_config.json`, regenerate
-`src/constants.h`, run the generator tests, and pass C simulation before
-synthesis. The generators reject schedules that exceed the available
-true-dual-port BRAM accesses.
+Keep the selected parameters in `configs/constants_config.json` and generate
+new headers into a separate file using `--output`. The current renderers
+already differ from the committed headers in prior packing, FIFO depth and
+additional lane tables; replacing a committed header requires reviewing
+those differences first. See [constant generation](docs/graph_generation.md).
+Run the generator tests and pass C simulation before synthesis. The
+generators reject schedules that exceed the available true-dual-port BRAM
+accesses.
 
 ## Results and Reproducibility
 
