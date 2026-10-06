@@ -7,6 +7,11 @@ initialization, check-node and variable-node updates, up-to-four sequential
 DMem-BP legs, convergence checking, candidate selection, and correction-related
 processing.
 
+![RelayHLS decoding flow](docs/figures/relayhls_flow.png)
+
+*Up to four legs share decoder state. Candidate costs are evaluated after
+convergence, and the controller may terminate early.*
+
 This is the corrected RelayHLS source revision. It includes the corrected multi-leg
 controller and banked datapath. The three synthetic configurations
 are reproducibility fixtures; their dimensions do not establish decoding quality
