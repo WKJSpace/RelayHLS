@@ -1,0 +1,1021 @@
+{
+  "schema": "relayhls-release-v1",
+  "release_date": "2026-10-23",
+  "scope": {
+    "BB72": [
+      "C1V2",
+      "C1V4",
+      "C1V8",
+      "C2V2",
+      "C2V4",
+      "C2V8",
+      "C4V2",
+      "C4V4",
+      "C4V8"
+    ],
+    "BB144": [
+      "C4V8"
+    ]
+  },
+  "source_policy": "Validated synthesis sources and constants are byte-identical to pinned snapshots. Only the testbench input path is made portable.",
+  "configuration_snapshots": [
+    {
+      "workload": "BB72",
+      "point": "C1V2",
+      "C": 1,
+      "V": 2,
+      "banks": 64,
+      "files": {
+        "benchmarks/bb72/c1v2/src/bp_iteration.h": {
+          "validated_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "release_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/cnu_read_index.h": {
+          "validated_sha256": "f937ada06f22acd7f7e4a2f086737fc85e26261759948224a3641bc3b004705f",
+          "release_sha256": "f937ada06f22acd7f7e4a2f086737fc85e26261759948224a3641bc3b004705f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/constants.h": {
+          "validated_sha256": "ccfe6ca4736807b3c491c6404ca56a4332968809855fbc72ae66d32663819662",
+          "release_sha256": "ccfe6ca4736807b3c491c6404ca56a4332968809855fbc72ae66d32663819662",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/vnu_read_index.h": {
+          "validated_sha256": "36939b49c19c2fd7d1521dc8780c8066180093a95ce3e03d501811629e58edbc",
+          "release_sha256": "36939b49c19c2fd7d1521dc8780c8066180093a95ce3e03d501811629e58edbc",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/testbench/full_top.cpp": {
+          "validated_sha256": "20268e486eb4c8c0a37e4f8d967f6237e82e2f2cd9e68139203d7ab850008b54",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb72/c1v2/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/config.json": {
+          "validated_sha256": "ef209ea1dd44336a570a523f5871ac3819b33971829240ecd178b16fe5e9c22a",
+          "release_sha256": "ef209ea1dd44336a570a523f5871ac3819b33971829240ecd178b16fe5e9c22a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/inputs.txt": {
+          "validated_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "release_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v2/golden.txt": {
+          "validated_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "release_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "portability_edit": null
+        }
+      }
+    },
+    {
+      "workload": "BB72",
+      "point": "C1V4",
+      "C": 1,
+      "V": 4,
+      "banks": 64,
+      "files": {
+        "benchmarks/bb72/c1v4/src/bp_iteration.h": {
+          "validated_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "release_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/cnu_read_index.h": {
+          "validated_sha256": "13053d12530be4df46ab096c4eb8626f7bebed0bff4feddef8ed6168ef59503f",
+          "release_sha256": "13053d12530be4df46ab096c4eb8626f7bebed0bff4feddef8ed6168ef59503f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/constants.h": {
+          "validated_sha256": "8a3278ad051e0c9386a39c6b861776a68d16c112799d044e4c6ba727faf1ee01",
+          "release_sha256": "8a3278ad051e0c9386a39c6b861776a68d16c112799d044e4c6ba727faf1ee01",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/vnu_read_index.h": {
+          "validated_sha256": "e87008f40b83a893dbd35a48d21af84ec32b8e65b9320066d577d7f39d5b3656",
+          "release_sha256": "e87008f40b83a893dbd35a48d21af84ec32b8e65b9320066d577d7f39d5b3656",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/testbench/full_top.cpp": {
+          "validated_sha256": "28bdb050867cb99498e5852929a2c7d589d89b80c1852cc5bc58bc5d23debf58",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb72/c1v4/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/config.json": {
+          "validated_sha256": "84f4555e550a090f583610b0709d817aa4e96e481181faffe9e19dcbabf2cfce",
+          "release_sha256": "84f4555e550a090f583610b0709d817aa4e96e481181faffe9e19dcbabf2cfce",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/inputs.txt": {
+          "validated_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "release_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v4/golden.txt": {
+          "validated_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "release_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "portability_edit": null
+        }
+      }
+    },
+    {
+      "workload": "BB72",
+      "point": "C1V8",
+      "C": 1,
+      "V": 8,
+      "banks": 64,
+      "files": {
+        "benchmarks/bb72/c1v8/src/bp_iteration.h": {
+          "validated_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "release_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/cnu_read_index.h": {
+          "validated_sha256": "f1ca06881b577d0df181030c91efcab439783087cc4f0a8d850782eadd2f2644",
+          "release_sha256": "f1ca06881b577d0df181030c91efcab439783087cc4f0a8d850782eadd2f2644",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/constants.h": {
+          "validated_sha256": "1ebaa8735aba090ad9598589a6e44dc23aad737cd1d60aa1d135818079139ff4",
+          "release_sha256": "1ebaa8735aba090ad9598589a6e44dc23aad737cd1d60aa1d135818079139ff4",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/vnu_read_index.h": {
+          "validated_sha256": "ce49767ff16686febe5f60fa0dc2a37e1cbfdab103b670da62386ef1f73551cf",
+          "release_sha256": "ce49767ff16686febe5f60fa0dc2a37e1cbfdab103b670da62386ef1f73551cf",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/testbench/full_top.cpp": {
+          "validated_sha256": "13a968f15bffc77081bd1147569511658e91fc87224c0cb8caaee70e119823eb",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb72/c1v8/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/config.json": {
+          "validated_sha256": "51271f13034420bb5ef5c02728868737fc6f83d8de71c35dae5d08c2c4f84675",
+          "release_sha256": "51271f13034420bb5ef5c02728868737fc6f83d8de71c35dae5d08c2c4f84675",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/inputs.txt": {
+          "validated_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "release_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c1v8/golden.txt": {
+          "validated_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "release_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "portability_edit": null
+        }
+      }
+    },
+    {
+      "workload": "BB72",
+      "point": "C2V2",
+      "C": 2,
+      "V": 2,
+      "banks": 64,
+      "files": {
+        "benchmarks/bb72/c2v2/src/bp_iteration.h": {
+          "validated_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "release_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/cnu_read_index.h": {
+          "validated_sha256": "e79e041475c789455f83ed0552100ad45aaba5899ff02aa6112cb6aac0107fa6",
+          "release_sha256": "e79e041475c789455f83ed0552100ad45aaba5899ff02aa6112cb6aac0107fa6",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/constants.h": {
+          "validated_sha256": "054e4611f42eac4a78aba58dcc4db5ca9d35cc3dda3d58c97ee1f251af9b181e",
+          "release_sha256": "054e4611f42eac4a78aba58dcc4db5ca9d35cc3dda3d58c97ee1f251af9b181e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/vnu_read_index.h": {
+          "validated_sha256": "b5ba5d31271e397e2299c52c9a5299373d69c4d6cb8a0d64804336d89d58c795",
+          "release_sha256": "b5ba5d31271e397e2299c52c9a5299373d69c4d6cb8a0d64804336d89d58c795",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/testbench/full_top.cpp": {
+          "validated_sha256": "b369767a800192b39057657bcb21fd7bad6de4dd795b7852d5355a38175c2ea3",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb72/c2v2/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/config.json": {
+          "validated_sha256": "9a2f4bf5c5e7f4566bbddeeaa50db9c66db74b3a16c0fef2bdb887f7439bc0e4",
+          "release_sha256": "9a2f4bf5c5e7f4566bbddeeaa50db9c66db74b3a16c0fef2bdb887f7439bc0e4",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/inputs.txt": {
+          "validated_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "release_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v2/golden.txt": {
+          "validated_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "release_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "portability_edit": null
+        }
+      }
+    },
+    {
+      "workload": "BB72",
+      "point": "C2V4",
+      "C": 2,
+      "V": 4,
+      "banks": 64,
+      "files": {
+        "benchmarks/bb72/c2v4/src/bp_iteration.h": {
+          "validated_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "release_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/cnu_read_index.h": {
+          "validated_sha256": "0759e73785a681b41db6e35aedbc367238deec89ad409a3e6a18f2c072349859",
+          "release_sha256": "0759e73785a681b41db6e35aedbc367238deec89ad409a3e6a18f2c072349859",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/constants.h": {
+          "validated_sha256": "6041aa1fa2a050e4fd497bc44e2e9a18ed7f9ab9e92d70f57cb9708c09fe322d",
+          "release_sha256": "6041aa1fa2a050e4fd497bc44e2e9a18ed7f9ab9e92d70f57cb9708c09fe322d",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/vnu_read_index.h": {
+          "validated_sha256": "e2b7ab973489deddd9028486b22174155d88c5c2f6a25e08dfa2adf12a19c0a2",
+          "release_sha256": "e2b7ab973489deddd9028486b22174155d88c5c2f6a25e08dfa2adf12a19c0a2",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/testbench/full_top.cpp": {
+          "validated_sha256": "e799e839dafa4b711142d14ef76101e548d0548be17248cdcb2271f80a761022",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb72/c2v4/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/config.json": {
+          "validated_sha256": "52097a995d0a3c3e2abe7b16dc23fe57f0d3e0c51cc91e5dbfae281a44b85ab1",
+          "release_sha256": "52097a995d0a3c3e2abe7b16dc23fe57f0d3e0c51cc91e5dbfae281a44b85ab1",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/inputs.txt": {
+          "validated_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "release_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v4/golden.txt": {
+          "validated_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "release_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "portability_edit": null
+        }
+      }
+    },
+    {
+      "workload": "BB72",
+      "point": "C2V8",
+      "C": 2,
+      "V": 8,
+      "banks": 64,
+      "files": {
+        "benchmarks/bb72/c2v8/src/bp_iteration.h": {
+          "validated_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "release_sha256": "cd8628c9c8a5bb21a1ff403c1aa630b40e83204683b114ef39cc40dc9c1f71b4",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/cnu_read_index.h": {
+          "validated_sha256": "e0a11c5d4a5fa827b61f4a603213756901ed8c5a8bb76161ff6398a20d907227",
+          "release_sha256": "e0a11c5d4a5fa827b61f4a603213756901ed8c5a8bb76161ff6398a20d907227",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/constants.h": {
+          "validated_sha256": "e7be195fa69a6c2f967c37231e67419a492119d0fd2e5f47eed39c896a0005f7",
+          "release_sha256": "e7be195fa69a6c2f967c37231e67419a492119d0fd2e5f47eed39c896a0005f7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/vnu_read_index.h": {
+          "validated_sha256": "c23480aef0845ac021690c53f61a29e9ca55586bce4eb14c8035e56197f65b06",
+          "release_sha256": "c23480aef0845ac021690c53f61a29e9ca55586bce4eb14c8035e56197f65b06",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/testbench/full_top.cpp": {
+          "validated_sha256": "bad560fc12d3db620702f68a280a1a547ea33357331e3d51726568601030327a",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb72/c2v8/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/config.json": {
+          "validated_sha256": "5e89c4b2ff02a973d52aeeb8ea9a45e2f3a89e2dd73acd60e47d02bf56063277",
+          "release_sha256": "5e89c4b2ff02a973d52aeeb8ea9a45e2f3a89e2dd73acd60e47d02bf56063277",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/inputs.txt": {
+          "validated_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "release_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c2v8/golden.txt": {
+          "validated_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "release_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "portability_edit": null
+        }
+      }
+    },
+    {
+      "workload": "BB72",
+      "point": "C4V2",
+      "C": 4,
+      "V": 2,
+      "banks": 128,
+      "files": {
+        "benchmarks/bb72/c4v2/src/bp_iteration.h": {
+          "validated_sha256": "9aee36a87c0e94e05bdec77ecff51ee7c6e4e8716f89fb7fac0812629b5aca5e",
+          "release_sha256": "9aee36a87c0e94e05bdec77ecff51ee7c6e4e8716f89fb7fac0812629b5aca5e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/cnu_read_index.h": {
+          "validated_sha256": "6789301aadd9a33024e7d9544e10a25c9cc8d24aba48dbd8bc0ea490048cd18c",
+          "release_sha256": "6789301aadd9a33024e7d9544e10a25c9cc8d24aba48dbd8bc0ea490048cd18c",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/constants.h": {
+          "validated_sha256": "8ddf3ad1f83e2b534a9b7d9070a561eb92eab15d15b88e1dc1ed8098344b99ea",
+          "release_sha256": "8ddf3ad1f83e2b534a9b7d9070a561eb92eab15d15b88e1dc1ed8098344b99ea",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/vnu_read_index.h": {
+          "validated_sha256": "f370d438c39c18c63ca9606296b9568645a8ead750e21380917fd1d883d71fd8",
+          "release_sha256": "f370d438c39c18c63ca9606296b9568645a8ead750e21380917fd1d883d71fd8",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/testbench/full_top.cpp": {
+          "validated_sha256": "292db1325e307429d871101e2485bd5981255b4bbe0db174202530d10e20cff2",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb72/c4v2/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/config.json": {
+          "validated_sha256": "038526c81fab5b1ec660f86234ff9457807cfa4a4e841311608f751bf7ca16b1",
+          "release_sha256": "038526c81fab5b1ec660f86234ff9457807cfa4a4e841311608f751bf7ca16b1",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/inputs.txt": {
+          "validated_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "release_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v2/golden.txt": {
+          "validated_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "release_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "portability_edit": null
+        }
+      }
+    },
+    {
+      "workload": "BB72",
+      "point": "C4V4",
+      "C": 4,
+      "V": 4,
+      "banks": 128,
+      "files": {
+        "benchmarks/bb72/c4v4/src/bp_iteration.h": {
+          "validated_sha256": "9aee36a87c0e94e05bdec77ecff51ee7c6e4e8716f89fb7fac0812629b5aca5e",
+          "release_sha256": "9aee36a87c0e94e05bdec77ecff51ee7c6e4e8716f89fb7fac0812629b5aca5e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/cnu_read_index.h": {
+          "validated_sha256": "b6d4af7567600c0455b10aced4c84ea8497d775877ed759f792c09b25d7930df",
+          "release_sha256": "b6d4af7567600c0455b10aced4c84ea8497d775877ed759f792c09b25d7930df",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/constants.h": {
+          "validated_sha256": "078d5b040b758d8576e681636fd1cb1d8449d912c43fc4eb9454aa03d3e37d5d",
+          "release_sha256": "078d5b040b758d8576e681636fd1cb1d8449d912c43fc4eb9454aa03d3e37d5d",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/vnu_read_index.h": {
+          "validated_sha256": "e14ac326a354c5cfad7d086dc13cc07fa5db61cdfd43112a31ea401effc34f1d",
+          "release_sha256": "e14ac326a354c5cfad7d086dc13cc07fa5db61cdfd43112a31ea401effc34f1d",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/testbench/full_top.cpp": {
+          "validated_sha256": "2ba5ead09bcb70d7eac1477c3b3dd9503436f1d4dea2bac189afef167ab0d3f6",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb72/c4v4/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/config.json": {
+          "validated_sha256": "926dcf5459cf9d408e82c0f683424ba45a3fea79342d7a5826da84b80350990c",
+          "release_sha256": "926dcf5459cf9d408e82c0f683424ba45a3fea79342d7a5826da84b80350990c",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/inputs.txt": {
+          "validated_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "release_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v4/golden.txt": {
+          "validated_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "release_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "portability_edit": null
+        }
+      }
+    },
+    {
+      "workload": "BB72",
+      "point": "C4V8",
+      "C": 4,
+      "V": 8,
+      "banks": 128,
+      "files": {
+        "benchmarks/bb72/c4v8/src/bp_iteration.h": {
+          "validated_sha256": "9aee36a87c0e94e05bdec77ecff51ee7c6e4e8716f89fb7fac0812629b5aca5e",
+          "release_sha256": "9aee36a87c0e94e05bdec77ecff51ee7c6e4e8716f89fb7fac0812629b5aca5e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/cnu_read_index.h": {
+          "validated_sha256": "df75e8827733e39becc95ee0e7792b248259068bff4056fd83d6b2683cd4bbe2",
+          "release_sha256": "df75e8827733e39becc95ee0e7792b248259068bff4056fd83d6b2683cd4bbe2",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/constants.h": {
+          "validated_sha256": "042b2ab43754252d657d022044b48e1061602b1caa6b26382417f6b44cd62806",
+          "release_sha256": "042b2ab43754252d657d022044b48e1061602b1caa6b26382417f6b44cd62806",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/vnu_read_index.h": {
+          "validated_sha256": "4d581aea2477d0dedef00f9ee54dbcf1b086dfe506fabec947daf8c6db6a1fb8",
+          "release_sha256": "4d581aea2477d0dedef00f9ee54dbcf1b086dfe506fabec947daf8c6db6a1fb8",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/testbench/full_top.cpp": {
+          "validated_sha256": "69bb6f54b060979e788bc3e6d729ae26a0fbe76695ff8e0dc7c60964da98fd7c",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb72/c4v8/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/config.json": {
+          "validated_sha256": "29c01d8198f16867249bf800b66b781d1dc1f1b20548ad85e1e162f3f4fa8a0e",
+          "release_sha256": "29c01d8198f16867249bf800b66b781d1dc1f1b20548ad85e1e162f3f4fa8a0e",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/inputs.txt": {
+          "validated_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "release_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+          "portability_edit": null
+        },
+        "benchmarks/bb72/c4v8/golden.txt": {
+          "validated_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "release_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+          "portability_edit": null
+        }
+      }
+    },
+    {
+      "workload": "BB144",
+      "point": "C4V8",
+      "C": 4,
+      "V": 8,
+      "banks": 128,
+      "files": {
+        "benchmarks/bb144/c4v8/src/bp_iteration.h": {
+          "validated_sha256": "98005e88b1a369f3fc2abca9f62133a2380b450026482c6992ea62db5d17dc9e",
+          "release_sha256": "98005e88b1a369f3fc2abca9f62133a2380b450026482c6992ea62db5d17dc9e",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/cnu.h": {
+          "validated_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "release_sha256": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/cnu_read_index.h": {
+          "validated_sha256": "d0467d5bbe5c7770936d02c3f1c8afc6c4673f6f7b4a88c7a54abb85a893ce25",
+          "release_sha256": "d0467d5bbe5c7770936d02c3f1c8afc6c4673f6f7b4a88c7a54abb85a893ce25",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/constants.h": {
+          "validated_sha256": "424273aba053d6be2ca85b0f99391dfb99bf5355cf475efe22c260cd77dde561",
+          "release_sha256": "424273aba053d6be2ca85b0f99391dfb99bf5355cf475efe22c260cd77dde561",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/decoder_top.cpp": {
+          "validated_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "release_sha256": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/decoder_top.h": {
+          "validated_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "release_sha256": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/packed_bits.h": {
+          "validated_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "release_sha256": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/relay_bp.h": {
+          "validated_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "release_sha256": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/tools.h": {
+          "validated_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "release_sha256": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/types.h": {
+          "validated_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "release_sha256": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/vnu.h": {
+          "validated_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "release_sha256": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/vnu_read_index.h": {
+          "validated_sha256": "a60f8aeb3a2b31c9cdae071cb1ed62c82e859b86d7a188a821fe0c9d33160ecd",
+          "release_sha256": "a60f8aeb3a2b31c9cdae071cb1ed62c82e859b86d7a188a821fe0c9d33160ecd",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/src/windowing.h": {
+          "validated_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "release_sha256": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/testbench/full_top.cpp": {
+          "validated_sha256": "4877496af11bd85a7aa26c4956e15d7210e93515dbf55e851f05aa3f40dbfe3b",
+          "release_sha256": "e44b5b796781f9d41d7b4a6e966cca23580c8a80d463d762a8617f363a49e875",
+          "portability_edit": "Only the fixture pathname is replaced by RELAYHLS_INPUT_PATH (default inputs.txt)."
+        },
+        "benchmarks/bb144/c4v8/testbench/native_oracle.cpp": {
+          "validated_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "release_sha256": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/config.json": {
+          "validated_sha256": "952ca0d2b8b24786617f5ed2dd19c15d64eb8d4e97ba71fcd6947b85869a1f77",
+          "release_sha256": "952ca0d2b8b24786617f5ed2dd19c15d64eb8d4e97ba71fcd6947b85869a1f77",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/inputs.txt": {
+          "validated_sha256": "5dab62436afa9cf136a4da37f74c0c1b44c8ed6fbc6f905dec41391ee2a26d9d",
+          "release_sha256": "5dab62436afa9cf136a4da37f74c0c1b44c8ed6fbc6f905dec41391ee2a26d9d",
+          "portability_edit": null
+        },
+        "benchmarks/bb144/c4v8/golden.txt": {
+          "validated_sha256": "51cf8d42009edbca489b8cbb2c4ca6df92504259cc4240a716a373eb4bc4c3da",
+          "release_sha256": "51cf8d42009edbca489b8cbb2c4ca6df92504259cc4240a716a373eb4bc4c3da",
+          "portability_edit": null
+        }
+      }
+    }
+  ],
+  "matched_software_source_sha256": {
+    "benchmark_cpu.cpp": "f38c45dd0448711ddc35782f64f6045bcc8e5caba613dbbd7f37eee9db426f43",
+    "cpu_baseline.cpp": "206e30b8afe58a97d5dc847b503037b997421f1d0c70a3fbd3477c148dc8ae8b",
+    "export_model.cpp": "2c03699b08d9ac4509cab524665da20195f160da969ec4d3598041aa31b34432",
+    "benchmark_gpu_v3.py": "d5f7dc331f6d6bee5b61d4f26a5df739cf6d1a2f42d300ead7ac7939f8571ab4",
+    "fused_gpu.py": "fef15bc46ba9921da7bc39b163086103e759a59b695329411a34d25b49b68ca7"
+  },
+  "validated_route_helper_sha256": "2aec8e4daeaf35fa1accbfe9b36385104ace6b6426cb55eb9c64656b88ceab08"
+}

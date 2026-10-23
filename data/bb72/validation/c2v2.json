@@ -1,0 +1,134 @@
+{
+  "schema": "relayhls-public-validation-v1",
+  "workload": "BB72",
+  "point": "C2V2",
+  "HLS": {
+    "HLS_final_sha256": "06aa61851af8d846d91c7f6d776b73c49a085fad13b6e4aa0947614bb5189135",
+    "native_final_sha256": "02e89c928b072f3d1aba1b759b5bf152bb5a2e3e6d3d6216b8f1fdc831400af1",
+    "contract_sha256": "ab1e93f6ee63a78c7a7bdd51845a3ce82da4c26c0e65553dcaa8f4e230a04a15",
+    "actual_vendor_exit": 0,
+    "ordered_Csim32_exact": true,
+    "all7requires": {
+      "cleanup_ok": true,
+      "exit0": true,
+      "no_control_reason": true,
+      "postrun_external_ok": true,
+      "postrun_tcl_ok": true,
+      "postrun_tree_ok": true,
+      "synthesis_report_ok": true
+    },
+    "all_source_native_external_controller_TCL_preserved": true,
+    "top_XML_sha256": "4680f4aa99ba7e55b26b1619599631b31f15be520c417d81f6000d80d275bc57",
+    "top_HLS_estimated_resources": {
+      "BRAM_18K": 1727,
+      "DSP": 1,
+      "FF": 67024,
+      "LUT": 199735,
+      "URAM": 0
+    },
+    "complete_group_schedules": [
+      {
+        "workload": "BB72",
+        "point": "C2V2",
+        "role": "CNU",
+        "loop": "CNU_ROW_GROUPS",
+        "achieved_II": 1,
+        "trip_count": 126,
+        "latency_cycles_est": 129,
+        "pipeline_depth_cycles": 5,
+        "report_sha256": "7f317219074c1ea2972936750118b4e4f250fa0678e440d6b13f3d9b79dc7752",
+        "scope": "HLS estimate only"
+      },
+      {
+        "workload": "BB72",
+        "point": "C2V2",
+        "role": "VNU",
+        "loop": "VNU_GROUPS",
+        "achieved_II": 1,
+        "trip_count": 1120,
+        "latency_cycles_est": 1125,
+        "pipeline_depth_cycles": 7,
+        "report_sha256": "ba6c91b09bcb44ad390e79a201c7faae0c2bf4868677f4fab8133a8bd4d92aff",
+        "scope": "HLS estimate only"
+      }
+    ]
+  },
+  "RTL_and_route": {
+    "RTL_gate": {
+      "comparisons": 160,
+      "latency_count": 32,
+      "latency_sum": 1512935,
+      "official_report_sha256": "6cd7839ece602afd5598e21548ccd1bb96dbdf35825a1a7f50fc1e6fcc52f3bc",
+      "service_count": 31,
+      "service_sum": 1472285,
+      "total_execution_cycles": 1513865,
+      "trace_sha256": "7c5ef6bcbc559b21cbf892aad073af03dd94ff71bdc328e2a18b46d5feec6654",
+      "verification_sha256": "48d1071a58bbf8b9473b7d309ef61866e91d6909719e776951e3aa223f39c2a8"
+    },
+    "TCL_XDC_preserved": true,
+    "accepted_HLS_and_external_and_isolated_sources_preserved": true,
+    "additional_auxiliary_file_count": 9,
+    "all_frozen_members_byte_identical_and_independent": true,
+    "both_actual_vendor_exits_zero_and_cleanup_complete": true,
+    "controller_final_sha256": "47fbc980ed34b768b1284069f3369fa751e55ab39248424441ead2eb753a1043",
+    "controller_final_unchanged": true,
+    "frozen_RTL_and_readmem_files": 2015,
+    "hls_final_sha256": "06aa61851af8d846d91c7f6d776b73c49a085fad13b6e4aa0947614bb5189135",
+    "input_contract_sha256": "7a26239aae1abc46bb13dc0da6ec3f22fe9fd014569dc1b28342b4df8007468a",
+    "latency_cycles": {
+      "count": 32,
+      "maximum": 66801,
+      "minimum": 21876,
+      "sum": 1512935
+    },
+    "mean_RTL_latency_us_at100MHz": 472.7921875,
+    "native_final_sha256": "02e89c928b072f3d1aba1b759b5bf152bb5a2e3e6d3d6216b8f1fdc831400af1",
+    "only_original_allowed_auxiliary_files": true,
+    "original_controller_passed": true,
+    "reportable_scope": "RTL co-simulation cycles and routed timing/resources at100MHz; no board measurement",
+    "route": {
+      "fully_routed_nets": 94560,
+      "reports_sha256": {
+        "post_synth_timing.rpt": "d3911e6c3caf75c0e3bd0da6866f1ccdb3e2391f675659e769a77f2b0025b1b8",
+        "post_synth_utilization.rpt": "e29344176865bb4011a3d50b3e7547bc9ee92237c4f5da4a9222863c24ce0ce8",
+        "route_status.rpt": "d67efa7d19bfe77d506dcb6f5042e55e7fca779596d9e06230e0cc053964a0c8",
+        "routed_drc.rpt": "c15fb4a0130a07ef19fcfc6460be1fc2cc5a2d4598b41cd876fbdc35c921a6d0",
+        "routed_timing.rpt": "fb3fed85a9a8a082c7365c10cc359895128e16f1f2760b1037a3cd15b015a066",
+        "routed_utilization.rpt": "a628ea74d1bcb760670a51bca25880ee0a235774ce55dd19f3a823f64fc56677",
+        "routed_vectorless_power.rpt": "ed7ae52fc5ab1f1d89b58696a88d262903fcf73f43d9f5e001e75fa7b10b8f51"
+      },
+      "resources": {
+        "bram18": 1472,
+        "dsp": 1,
+        "ff": 44253,
+        "lut": 64298
+      },
+      "routable_nets": 94560,
+      "timing_slacks_ns": {
+        "hold": 0.01,
+        "pulse": 4.458,
+        "setup": 0.75
+      }
+    },
+    "route_input_binding_sha256": "fcc8c14b76d2a116f58edb45631f9d15a8b010e76d2e5b4e584dbbb0d4b54162",
+    "routed_checkpoint_bytes": 51460369,
+    "routed_checkpoint_sha256": "a75c0a1a0bb37b0788f2a0ab660d10c43f1921e715dea4a7109f34b041b954b3",
+    "schema": "bb72-c2v2-b64-dual-gather-closed-controller-success-audit-v1",
+    "service_cycles": {
+      "count": 31,
+      "maximum": 66831,
+      "minimum": 21906,
+      "sum": 1472285
+    },
+    "start_start_per_second_at100MHz": 2105.5705926502,
+    "validation_passed": true
+  },
+  "source_evidence_sha256": {
+    "HLS_audit": "18b4ea83a776038d05e98672b25cee093c8eba4b99e233836edecd7eb821a869",
+    "route_audit": "51f0b22a28c063dd0049d222e403828231cc61fa8354ab29a1bbdd27d0bd26c9"
+  },
+  "independent_review_record_sha256": [
+    "4a531078f195c981932dcd1f1fa28d74ec82f71e27ccd10a9fbfa0b2bb31cbd2"
+  ],
+  "evidence_scope": "Filtered aggregate audit evidence; raw server logs and implementation products are not distributed."
+}

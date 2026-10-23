@@ -1,0 +1,150 @@
+{
+  "schema": "relayhls-public-validation-v1",
+  "workload": "BB144",
+  "point": "C4V8",
+  "HLS": {
+    "HLS_final_sha256": "5f453ddf008fa1ced4253115af46713e268160c0f338763e166dbbd4de3ab105",
+    "native_final_sha256": "8d99ca4af5768b31b7a893392cb5fa2e93004b7f1e4cadf250f88afa3c50e393",
+    "contract_sha256": "0f2c3b411a2e45fae68da784867de39f90ebc08cc41c4b99f904e5cf335403e3",
+    "actual_vendor_exit": 0,
+    "ordered_Csim32_exact": true,
+    "all7requires": {
+      "cleanup_ok": true,
+      "exit0": true,
+      "no_control_reason": true,
+      "postrun_external_ok": true,
+      "postrun_tcl_ok": true,
+      "postrun_tree_ok": true,
+      "synthesis_report_ok": true
+    },
+    "all_source_native_external_controller_TCL_preserved": true,
+    "top_XML_sha256": "fcbc1c56a57176cdfe87e6bed48ce948ea45301cc52d1cca3d888b2536d3b4f7",
+    "top_HLS_estimated_resources": {
+      "BRAM_18K": 4064,
+      "DSP": 129,
+      "FF": 85855,
+      "LUT": 675799,
+      "URAM": 0
+    },
+    "complete_group_schedules": [
+      {
+        "workload": "BB144",
+        "point": "C4V8",
+        "role": "CNU",
+        "loop": "CNU_ROW_GROUPS",
+        "achieved_II": 1,
+        "trip_count": 234,
+        "latency_cycles_est": 237,
+        "pipeline_depth_cycles": 5,
+        "report_sha256": "df4a82c2f59766e84f5696e10e0ac9e0f4ed035326a03215a9348438f2a528c1",
+        "scope": "HLS estimate only"
+      },
+      {
+        "workload": "BB144",
+        "point": "C4V8",
+        "role": "VNU",
+        "loop": "VNU_GROUPS",
+        "achieved_II": 1,
+        "trip_count": 1104,
+        "latency_cycles_est": 1109,
+        "pipeline_depth_cycles": 7,
+        "report_sha256": "2acf6a2e09b6e1b95e2aa595a2d46e3f759185f2b6f81a56cdc71a3241551301",
+        "scope": "HLS estimate only"
+      }
+    ]
+  },
+  "RTL_and_route": {
+    "RTL_gate": {
+      "comparisons": 160,
+      "latency_count": 32,
+      "latency_sum": 3374040,
+      "official_report_sha256": "2da7ccc94a10d289249c773aecb599c1221b59ef9c17cad6b163e2cc9e6f0c74",
+      "service_count": 31,
+      "service_sum": 3296545,
+      "total_execution_cycles": 3374970,
+      "trace_sha256": "c5f109c3bc96c82332bb0c2cd73aa6a9486c1c9e321d7c8de162c62817fd4dd5",
+      "verification_sha256": "36b642a8a384ca2ef95550b6d259b5558e01069442cc73dd07e541310a5dc2ef"
+    },
+    "TCL_XDC_preserved": true,
+    "accepted_HLS_and_external_and_isolated_sources_preserved": true,
+    "additional_auxiliary_file_count": 21,
+    "all_frozen_members_byte_identical_and_independent": true,
+    "both_actual_vendor_exits_zero_and_cleanup_complete": true,
+    "controller_final_sha256": "d50ba13df7214d88c736e9c8c823314aa7c590808e7bc52f9fe92bdaeb61fa69",
+    "controller_final_unchanged": true,
+    "energy_efficiency_decodings_J_est": 134.10988122842164,
+    "energy_uJ_decoding_est": 7456.572109677419,
+    "frozen_RTL_and_readmem_files": 3634,
+    "hls_final_sha256": "5f453ddf008fa1ced4253115af46713e268160c0f338763e166dbbd4de3ab105",
+    "independent_actual_160_output_comparisons": true,
+    "input_contract_sha256": "780060b39bb7613192be3c6906d2feb8392bc306c04cfe0effd149b58390d4ea",
+    "latency_cycles": {
+      "count": 32,
+      "maximum": 112093,
+      "minimum": 70851,
+      "sum": 3374040
+    },
+    "mean_RTL_latency_us_at100MHz": 1054.3875,
+    "native_final_sha256": "8d99ca4af5768b31b7a893392cb5fa2e93004b7f1e4cadf250f88afa3c50e393",
+    "only_original_allowed_auxiliary_files": true,
+    "original_controller_passed": true,
+    "power_estimate": {
+      "confidence": "Medium",
+      "device_static_W": 2.54,
+      "dynamic_W": 4.472,
+      "total_on_chip_W": 7.012
+    },
+    "power_scope": "vectorless on-chip estimate, not measured board power or BB144 activity-matched energy",
+    "reportable_scope": "RTL co-simulation cycles and routed timing/resources at100MHz; no board measurement",
+    "resource_utilization_percent": {
+      "bram18": 86.04166666666667,
+      "dsp": 0.014619883040935673,
+      "ff": 1.613631749898498,
+      "lut": 16.157971308702123
+    },
+    "route": {
+      "fully_routed_nets": 175185,
+      "reports_sha256": {
+        "post_synth_timing.rpt": "5ffcebc64c8de6d56a9c9ed44098273b929f84a40162a354cb7d36b3393d6e44",
+        "post_synth_utilization.rpt": "f20630c7582ddfead2b71c78fca4b4c6be9a8427309b124e4137b8dd7339a2d8",
+        "route_status.rpt": "b9ccbd7abe6a66f0d108050c39de4a3587ec2e87ef185cf4928aabf08ba6a929",
+        "routed_drc.rpt": "8c86805097ff090a4988e633e7bac9903aeb347247ac34919705a0ac17169f8a",
+        "routed_timing.rpt": "32fde0a9a7ea1d806a30ce650fd2833d9f73619c601190b1aeeffc9187da751a",
+        "routed_utilization.rpt": "60d430bb565c5eb9320a86c473a02094d0b334eb96383a88f673bb79d3f32fff",
+        "routed_vectorless_power.rpt": "c038800b038adcda3af0738feaf6b5bb91347617bc96c6891a7f593dfa21c41e"
+      },
+      "resources": {
+        "bram18": 3717,
+        "dsp": 1,
+        "ff": 38154,
+        "lut": 191026
+      },
+      "routable_nets": 175185,
+      "timing_slacks_ns": {
+        "hold": 0.01,
+        "pulse": 4.458,
+        "setup": 0.208
+      }
+    },
+    "route_input_binding_sha256": "b0a1827fd3d58593d449ff80ff827729f5e106ae9545b93b895e73ad636a880b",
+    "routed_checkpoint_bytes": 138225477,
+    "routed_checkpoint_sha256": "46a8ee92878b28daa2841348f74b41e697f8cbb3f603a88300b1daac41eb8c03",
+    "schema": "bb144-c4v8-b128-II1-closed-controller-success-audit-v1",
+    "service_cycles": {
+      "count": 31,
+      "maximum": 112123,
+      "minimum": 70881,
+      "sum": 3296545
+    },
+    "start_start_per_second_at100MHz": 940.3784871736924,
+    "validation_passed": true
+  },
+  "source_evidence_sha256": {
+    "HLS_audit": "630aae71f00dc9b2c7a4731b8aea57836cbffa82dba94775fdc59a66455a829b",
+    "route_audit": "0965e8006aaa3a17818bda0fc4e4b746ee14ce95bf9d545d4d8d890b70f845a6"
+  },
+  "independent_review_record_sha256": [
+    "ca1782f4df614c4177dd67e4caaa55a5aefb8050bb2fa1eda05fe3e37c02f726"
+  ],
+  "evidence_scope": "Filtered aggregate audit evidence; raw server logs and implementation products are not distributed."
+}

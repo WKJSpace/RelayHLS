@@ -1,0 +1,31 @@
+{
+  "schema": "relayhls-software-source-provenance-v1",
+  "original_matched_HLS_C_source_pins": {
+    "build.tcl": "d769a2961ffca79444f198ef40759ed04b6c0c4fcbaf52846d79159f35a86106",
+    "config.json": "08aa9ffd993239c3b718a8aa05a00d83b22f4cbabc022977b104cd2539e1e373",
+    "inputs.txt": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+    "native.log": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+    "src/bp_iteration.h": "44034c278bcdf659e11003081b4bd31c50bc3b54952e6cb05ccbaf95551676c1",
+    "src/cnu.h": "a63e0a5dfd984e9194c8d5bb1de4ae2a720384fe16be499c603a456520e3c60f",
+    "src/constants.h": "442b99baf14d3e506c3d402a3ea3cc34209beab21333d6daa7fd7a48fc3e57be",
+    "src/decoder_top.cpp": "db980a376ee882230e5f058cd899f49651b7251b117f3b593b4a1cf2c264c996",
+    "src/decoder_top.h": "a035160a57347e8f034bf215b587c5f829714fdd8e6c52117b7c79e81a7b4a74",
+    "src/packed_bits.h": "3bcad84f5a73de4c38fc96e73b1427912f1aa88ddba7e2c4faf7d6c2dac0bfc7",
+    "src/relay_bp.h": "163af6e22d43673749d318590f26c080f390905b8dab0a24a60a411d507a6158",
+    "src/tools.h": "8b15d910f72eea256ceeb621f836e50b732e5a4082c50ee6c31499e962cfa981",
+    "src/types.h": "2893ffa94a28d10950c9f2e2807a71c4f3b8f2b13f66c8aa403b9f9057fb737a",
+    "src/vnu.h": "b0317acb1b902d97a2f83775396e48fd863bbf17a6d1bcb4b586b6f403506ae3",
+    "src/windowing.h": "630b4e95670dbf7c8197f18d7263f36ac40dbee1da80d2a7840bcc5425f6e780",
+    "testbench/full_top.cpp": "510161b16f130fa5bac4f2c7c9ebfeebab6990c6f3f35793071017af4bde0955",
+    "testbench/native_oracle.cpp": "020c026e9b8ef23522218ae00740cfe428dbd59011dea1093da7799922bf988e"
+  },
+  "CPU_tool_source_pins": {
+    "benchmark_cpu.cpp": "f38c45dd0448711ddc35782f64f6045bcc8e5caba613dbbd7f37eee9db426f43",
+    "cpu_baseline.cpp": "206e30b8afe58a97d5dc847b503037b997421f1d0c70a3fbd3477c148dc8ae8b",
+    "export_model.cpp": "2c03699b08d9ac4509cab524665da20195f160da969ec4d3598041aa31b34432"
+  },
+  "GPU_tool_source_pins": {
+    "benchmark_gpu_v3.py": "d5f7dc331f6d6bee5b61d4f26a5df739cf6d1a2f42d300ead7ac7939f8571ab4",
+    "fused_gpu.py": "fef15bc46ba9921da7bc39b163086103e759a59b695329411a34d25b49b68ca7"
+  }
+}

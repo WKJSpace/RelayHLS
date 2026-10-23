@@ -1,0 +1,85 @@
+{
+  "sources": [
+    {
+      "source_id": "FPGA_SAVED_REPORTS_20261019",
+      "file_name": "saved-fpga-metrics-stdout.json",
+      "sha256": "f57baf17c77384a692bc341c65a3d82459c36f29ec96b97b8aaf6da369adf22d"
+    },
+    {
+      "source_id": "LATEST_CV_SNAPSHOT",
+      "file_name": "current-owner-checkpoint.json",
+      "sha256": "2266547425c28cb915aeb1200393db1051dfd7f258db43aec54353d6b0df21b1"
+    },
+    {
+      "source_id": "MATCHED_SOFTWARE_TIMING_20261018",
+      "file_name": "matched-latency-results.json",
+      "sha256": "1850135e8dcd26e4d57d4b91775878f4d4a74c852186216977f15fe993b05f4d"
+    },
+    {
+      "source_id": "GPU_ENERGY_20261019",
+      "file_name": "gpu-energy-audit-stdout.json",
+      "sha256": "1b2e8a99ab8b382c3df77ca8f84ef41c4000ccbdba2cbe1819580b75717acf3c"
+    },
+    {
+      "source_id": "CPU_ENERGY_20261019",
+      "file_name": "cpu-energy-integration-stdout.json",
+      "sha256": "d863cdd86b53496b580dd4314079e7b6b99a1aa104aed1a6c6c1b3252391591f"
+    },
+    {
+      "source_id": "C4V2_SAVED_RTL_GATE_20261020",
+      "file_name": "new-completed-RTL-gate-stdout.json",
+      "sha256": "5b4f03976da5d4dffda03452d78910bdfae512aae66b66747433545e15379719"
+    },
+    {
+      "source_id": "C1V2_FULL_ROUTE_AUDIT",
+      "file_name": "completed-route-audit-stdout.json",
+      "sha256": "93703009bccdfa01d26c70258aae34660ff274497605ecee0aa1b5aac092938a"
+    },
+    {
+      "source_id": "C1V4_FULL_ROUTE_AUDIT",
+      "file_name": "completed-route-audit-stdout.json",
+      "sha256": "83ac7d86343004b8c872a3d042a17aad7685ac9d5e97e9f7cd08db80f85641af"
+    },
+    {
+      "source_id": "C1V8_FULL_ROUTE_AUDIT",
+      "file_name": "completed-route-audit-stdout.json",
+      "sha256": "52d03038507a034b3e9b3b218501625e38a50ddaeb08abff59f910989d47fc42"
+    },
+    {
+      "source_id": "C2V2_FULL_ROUTE_AUDIT",
+      "file_name": "completed-route-audit-stdout.json",
+      "sha256": "51f0b22a28c063dd0049d222e403828231cc61fa8354ab29a1bbdd27d0bd26c9"
+    },
+    {
+      "source_id": "C2V4_FULL_ROUTE_AUDIT",
+      "file_name": "completed-route-audit-stdout.json",
+      "sha256": "2dea4715c10f7ee023905d02df187449a6301a96381603bab019da4599c8bf5e"
+    },
+    {
+      "source_id": "C4V2_FULL_ROUTE_AUDIT",
+      "file_name": "completed-route-audit-stdout.json",
+      "sha256": "5246c350d9ed3cdc156345f9448f50ee7bb9d45e56fc24c94487db2a55bed40a"
+    },
+    {
+      "source_id": "C4V4_FULL_ROUTE_AUDIT",
+      "file_name": "completed-route-audit-stdout.json",
+      "sha256": "d6e95a9ca04896c13b4da5cae0743eb6bcd6062bc53ec521b23006774d2d6739"
+    },
+    {
+      "source_id": "NEW_SAVED_POWER",
+      "file_name": "three-new-saved-power-stdout.json",
+      "sha256": "86662512edc6c35df78ade324fa8be8a55de07249552cfb8b99eea355dce73aa"
+    }
+  ],
+  "device_sources": [
+    {
+      "title": "AMD UG1224 VCU118",
+      "url": "https://docs.amd.com/v/u/en-US/ug1224-vcu118-eval-bd"
+    },
+    {
+      "title": "AMD DS890 Table15, page15",
+      "url": "https://docs.amd.com/api/khub/documents/dGU6Y~1b8XPqDFk5ulti6g/content"
+    }
+  ],
+  "scope_note": "Source IDs identify the original retained aggregate records. Public filtered per-point audits are in bb72/validation and bb144/validation; original private logs and operational checkpoints are not distributed."
+}

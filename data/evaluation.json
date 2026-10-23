@@ -1,0 +1,2586 @@
+{
+  "schema": "relayhls-current-nine-point-evaluation-v1",
+  "recorded_utc": "2026-10-20T04:07:13.753578+00:00",
+  "updated_JST": "2026-10-22T22:16:34.326889+09:00",
+  "workload": "circuit-derived BB72, same32 ordered inputs, batch one, same fixed-point arithmetic and Relay-BP settings",
+  "input_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+  "FPGA_board": "VCU118",
+  "FPGA_part": "xcvu9p-flga2104-2L-e",
+  "VCU118_capacity": {
+    "lut": 1182240,
+    "ff": 2364480,
+    "bram18_equiv": 4320,
+    "bram36_equiv": 2160,
+    "dsp": 6840,
+    "uram": 960
+  },
+  "software_latency": [
+    {
+      "implementation": "CPU hls-c-1",
+      "host": "Supernova",
+      "hardware": "AMD EPYC 9554 64-Core Processor",
+      "threads": 1,
+      "latency_mean_us": 13942.776925,
+      "latency_median_us": 13921.964,
+      "latency_p95_us": 21281.066749999998,
+      "latency_min_us": 4414.032,
+      "latency_max_us": 21352.174,
+      "throughput_frames_s": 71.72172411415096,
+      "throughput_basis": "reciprocal of mean per-call time; not independently measured sustained throughput",
+      "cycles": null,
+      "cycles_status": "CPU/GPU hardware cycles not measured",
+      "power_W": null,
+      "energy_uJ_frame": null,
+      "frames_J": null,
+      "boundary": "resident_packed_inputs_to_resident_five_outputs",
+      "timed_calls": 160,
+      "source_id": "MATCHED_SOFTWARE_TIMING_20261018"
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "host": "Supernova",
+      "hardware": "AMD EPYC 9554 64-Core Processor",
+      "threads": 1,
+      "latency_mean_us": 1053.44905625,
+      "latency_median_us": 1054.71,
+      "latency_p95_us": 1605.01155,
+      "latency_min_us": 332.71,
+      "latency_max_us": 1611.091,
+      "throughput_frames_s": 949.2627992470138,
+      "throughput_basis": "reciprocal of mean per-call time; not independently measured sustained throughput",
+      "cycles": null,
+      "cycles_status": "CPU/GPU hardware cycles not measured",
+      "power_W": null,
+      "energy_uJ_frame": null,
+      "frames_J": null,
+      "boundary": "resident_packed_inputs_to_resident_five_outputs",
+      "timed_calls": 160,
+      "source_id": "MATCHED_SOFTWARE_TIMING_20261018"
+    },
+    {
+      "implementation": "CPU simd-1",
+      "host": "Supernova",
+      "hardware": "AMD EPYC 9554 64-Core Processor",
+      "threads": 1,
+      "latency_mean_us": 901.4773125,
+      "latency_median_us": 901.3695,
+      "latency_p95_us": 1373.5004999999999,
+      "latency_min_us": 288.354,
+      "latency_max_us": 1382.407,
+      "throughput_frames_s": 1109.290257374059,
+      "throughput_basis": "reciprocal of mean per-call time; not independently measured sustained throughput",
+      "cycles": null,
+      "cycles_status": "CPU/GPU hardware cycles not measured",
+      "power_W": null,
+      "energy_uJ_frame": null,
+      "frames_J": null,
+      "boundary": "resident_packed_inputs_to_resident_five_outputs",
+      "timed_calls": 160,
+      "source_id": "MATCHED_SOFTWARE_TIMING_20261018"
+    },
+    {
+      "implementation": "CPU simd-4",
+      "host": "Supernova",
+      "hardware": "AMD EPYC 9554 64-Core Processor",
+      "threads": 4,
+      "latency_mean_us": 1411.875525,
+      "latency_median_us": 1440.69,
+      "latency_p95_us": 2362.8764,
+      "latency_min_us": 399.069,
+      "latency_max_us": 2752.796,
+      "throughput_frames_s": 708.2777357444454,
+      "throughput_basis": "reciprocal of mean per-call time; not independently measured sustained throughput",
+      "cycles": null,
+      "cycles_status": "CPU/GPU hardware cycles not measured",
+      "power_W": null,
+      "energy_uJ_frame": null,
+      "frames_J": null,
+      "boundary": "resident_packed_inputs_to_resident_five_outputs",
+      "timed_calls": 160,
+      "source_id": "MATCHED_SOFTWARE_TIMING_20261018"
+    },
+    {
+      "implementation": "CPU simd-8",
+      "host": "Supernova",
+      "hardware": "AMD EPYC 9554 64-Core Processor",
+      "threads": 8,
+      "latency_mean_us": 1769.30483125,
+      "latency_median_us": 1759.6485,
+      "latency_p95_us": 2693.6623000000004,
+      "latency_min_us": 541.414,
+      "latency_max_us": 2803.352,
+      "throughput_frames_s": 565.193731649683,
+      "throughput_basis": "reciprocal of mean per-call time; not independently measured sustained throughput",
+      "cycles": null,
+      "cycles_status": "CPU/GPU hardware cycles not measured",
+      "power_W": null,
+      "energy_uJ_frame": null,
+      "frames_J": null,
+      "boundary": "resident_packed_inputs_to_resident_five_outputs",
+      "timed_calls": 160,
+      "source_id": "MATCHED_SOFTWARE_TIMING_20261018"
+    },
+    {
+      "implementation": "GPU device",
+      "host": "Bahama",
+      "hardware": "NVIDIA L40S",
+      "threads": null,
+      "latency_mean_us": 255.37000261247158,
+      "latency_median_us": 254.97600436210632,
+      "latency_p95_us": 309.2480003833771,
+      "latency_min_us": 183.29599499702454,
+      "latency_max_us": 311.2959861755371,
+      "throughput_frames_s": 3915.8867124950357,
+      "throughput_basis": "reciprocal of mean per-call time; not independently measured sustained throughput",
+      "cycles": null,
+      "cycles_status": "CPU/GPU hardware cycles not measured",
+      "power_W": null,
+      "energy_uJ_frame": null,
+      "frames_J": null,
+      "boundary": "resident_packed_inputs_to_resident_five_outputs",
+      "timed_calls": 160,
+      "source_id": "MATCHED_SOFTWARE_TIMING_20261018"
+    },
+    {
+      "implementation": "GPU with transfers",
+      "host": "Bahama",
+      "hardware": "NVIDIA L40S",
+      "threads": null,
+      "latency_mean_us": 295.82328125,
+      "latency_median_us": 293.86400000000003,
+      "latency_p95_us": 343.4243,
+      "latency_min_us": 217.122,
+      "latency_max_us": 821.257,
+      "throughput_frames_s": 3380.396552206792,
+      "throughput_basis": "reciprocal of mean per-call time; not independently measured sustained throughput",
+      "cycles": null,
+      "cycles_status": "CPU/GPU hardware cycles not measured",
+      "power_W": null,
+      "energy_uJ_frame": null,
+      "frames_J": null,
+      "boundary": "pinned_host_packed_inputs_H2D_graph_D2H_synchronize",
+      "timed_calls": 160,
+      "source_id": "MATCHED_SOFTWARE_TIMING_20261018"
+    }
+  ],
+  "software_per_input_mean": [
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 0,
+      "mean_us_over_5_trials": 4477.3416
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 1,
+      "mean_us_over_5_trials": 17051.443199999998
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 2,
+      "mean_us_over_5_trials": 13868.1584
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 3,
+      "mean_us_over_5_trials": 18097.5852
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 4,
+      "mean_us_over_5_trials": 14920.5476
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 5,
+      "mean_us_over_5_trials": 17144.6336
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 6,
+      "mean_us_over_5_trials": 8655.4074
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 7,
+      "mean_us_over_5_trials": 7672.5624
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 8,
+      "mean_us_over_5_trials": 7596.869
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 9,
+      "mean_us_over_5_trials": 19304.5248
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 10,
+      "mean_us_over_5_trials": 11913.356800000001
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 11,
+      "mean_us_over_5_trials": 17817.162
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 12,
+      "mean_us_over_5_trials": 20003.0886
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 13,
+      "mean_us_over_5_trials": 11933.395
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 14,
+      "mean_us_over_5_trials": 19152.8628
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 15,
+      "mean_us_over_5_trials": 21310.7814
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 16,
+      "mean_us_over_5_trials": 15930.1644
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 17,
+      "mean_us_over_5_trials": 16030.5434
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 18,
+      "mean_us_over_5_trials": 18062.2966
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 19,
+      "mean_us_over_5_trials": 7581.5078
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 20,
+      "mean_us_over_5_trials": 6604.1394
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 21,
+      "mean_us_over_5_trials": 4447.152
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 22,
+      "mean_us_over_5_trials": 12832.361799999999
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 23,
+      "mean_us_over_5_trials": 12642.3226
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 24,
+      "mean_us_over_5_trials": 21244.8142
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 25,
+      "mean_us_over_5_trials": 13955.1028
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 26,
+      "mean_us_over_5_trials": 11796.6718
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 27,
+      "mean_us_over_5_trials": 10896.3788
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 28,
+      "mean_us_over_5_trials": 17241.5226
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 29,
+      "mean_us_over_5_trials": 21308.7686
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 30,
+      "mean_us_over_5_trials": 12891.666799999999
+    },
+    {
+      "implementation": "CPU hls-c-1",
+      "input_index": 31,
+      "mean_us_over_5_trials": 11783.7282
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 0,
+      "mean_us_over_5_trials": 337.1386
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 1,
+      "mean_us_over_5_trials": 1287.4302
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 2,
+      "mean_us_over_5_trials": 1056.67
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 3,
+      "mean_us_over_5_trials": 1368.811
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 4,
+      "mean_us_over_5_trials": 1124.582
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 5,
+      "mean_us_over_5_trials": 1294.5792000000001
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 6,
+      "mean_us_over_5_trials": 658.3332
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 7,
+      "mean_us_over_5_trials": 574.185
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 8,
+      "mean_us_over_5_trials": 572.452
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 9,
+      "mean_us_over_5_trials": 1455.2824
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 10,
+      "mean_us_over_5_trials": 892.89
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 11,
+      "mean_us_over_5_trials": 1351.6848
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 12,
+      "mean_us_over_5_trials": 1515.0888
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 13,
+      "mean_us_over_5_trials": 901.4042
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 14,
+      "mean_us_over_5_trials": 1451.014
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 15,
+      "mean_us_over_5_trials": 1606.1872
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 16,
+      "mean_us_over_5_trials": 1204.3818
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 17,
+      "mean_us_over_5_trials": 1217.1208
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 18,
+      "mean_us_over_5_trials": 1360.1698
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 19,
+      "mean_us_over_5_trials": 576.6964
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 20,
+      "mean_us_over_5_trials": 498.7918
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 21,
+      "mean_us_over_5_trials": 333.8278
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 22,
+      "mean_us_over_5_trials": 970.7648
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 23,
+      "mean_us_over_5_trials": 959.3876
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 24,
+      "mean_us_over_5_trials": 1600.6772
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 25,
+      "mean_us_over_5_trials": 1053.1222
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 26,
+      "mean_us_over_5_trials": 893.9334
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 27,
+      "mean_us_over_5_trials": 821.1256
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 28,
+      "mean_us_over_5_trials": 1297.031
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 29,
+      "mean_us_over_5_trials": 1608.575
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 30,
+      "mean_us_over_5_trials": 978.8312
+    },
+    {
+      "implementation": "CPU scalar-1",
+      "input_index": 31,
+      "mean_us_over_5_trials": 888.2008
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 0,
+      "mean_us_over_5_trials": 292.5218
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 1,
+      "mean_us_over_5_trials": 1104.2592
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 2,
+      "mean_us_over_5_trials": 902.35
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 3,
+      "mean_us_over_5_trials": 1167.7744
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 4,
+      "mean_us_over_5_trials": 956.9258
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 5,
+      "mean_us_over_5_trials": 1109.2026
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 6,
+      "mean_us_over_5_trials": 565.3716000000001
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 7,
+      "mean_us_over_5_trials": 497.0868
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 8,
+      "mean_us_over_5_trials": 487.1702
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 9,
+      "mean_us_over_5_trials": 1250.329
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 10,
+      "mean_us_over_5_trials": 765.0072
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 11,
+      "mean_us_over_5_trials": 1145.389
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 12,
+      "mean_us_over_5_trials": 1285.0368
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 13,
+      "mean_us_over_5_trials": 775.4352
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 14,
+      "mean_us_over_5_trials": 1243.212
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 15,
+      "mean_us_over_5_trials": 1374.0868
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 16,
+      "mean_us_over_5_trials": 1024.0088
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 17,
+      "mean_us_over_5_trials": 1046.7572
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 18,
+      "mean_us_over_5_trials": 1156.4214
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 19,
+      "mean_us_over_5_trials": 498.8878
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 20,
+      "mean_us_over_5_trials": 430.3546
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 21,
+      "mean_us_over_5_trials": 292.3556
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 22,
+      "mean_us_over_5_trials": 827.2529999999999
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 23,
+      "mean_us_over_5_trials": 812.691
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 24,
+      "mean_us_over_5_trials": 1370.0828000000001
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 25,
+      "mean_us_over_5_trials": 901.0717999999999
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 26,
+      "mean_us_over_5_trials": 764.3184
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 27,
+      "mean_us_over_5_trials": 708.5066
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 28,
+      "mean_us_over_5_trials": 1115.4278
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 29,
+      "mean_us_over_5_trials": 1381.1034
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 30,
+      "mean_us_over_5_trials": 840.9774
+    },
+    {
+      "implementation": "CPU simd-1",
+      "input_index": 31,
+      "mean_us_over_5_trials": 755.898
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 0,
+      "mean_us_over_5_trials": 456.522
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 1,
+      "mean_us_over_5_trials": 1758.1058
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 2,
+      "mean_us_over_5_trials": 1453.9626
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 3,
+      "mean_us_over_5_trials": 1886.41
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 4,
+      "mean_us_over_5_trials": 1534.2333999999998
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 5,
+      "mean_us_over_5_trials": 1757.9534
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 6,
+      "mean_us_over_5_trials": 898.7944
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 7,
+      "mean_us_over_5_trials": 796.272
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 8,
+      "mean_us_over_5_trials": 792.1444
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 9,
+      "mean_us_over_5_trials": 2019.855
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 10,
+      "mean_us_over_5_trials": 1239.5222
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 11,
+      "mean_us_over_5_trials": 1867.4058
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 12,
+      "mean_us_over_5_trials": 2085.2252
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 13,
+      "mean_us_over_5_trials": 1201.7674
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 14,
+      "mean_us_over_5_trials": 1933.5414
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 15,
+      "mean_us_over_5_trials": 2179.1762
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 16,
+      "mean_us_over_5_trials": 1623.3492
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 17,
+      "mean_us_over_5_trials": 1614.8862000000001
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 18,
+      "mean_us_over_5_trials": 1820.9838
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 19,
+      "mean_us_over_5_trials": 775.2888
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 20,
+      "mean_us_over_5_trials": 664.9532
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 21,
+      "mean_us_over_5_trials": 447.9292
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 22,
+      "mean_us_over_5_trials": 1288.5704
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 23,
+      "mean_us_over_5_trials": 1277.8542
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 24,
+      "mean_us_over_5_trials": 2129.7642
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 25,
+      "mean_us_over_5_trials": 1412.1796
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 26,
+      "mean_us_over_5_trials": 1160.616
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 27,
+      "mean_us_over_5_trials": 1041.1268
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 28,
+      "mean_us_over_5_trials": 1638.0994
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 29,
+      "mean_us_over_5_trials": 2045.2574
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 30,
+      "mean_us_over_5_trials": 1249.1728
+    },
+    {
+      "implementation": "CPU simd-4",
+      "input_index": 31,
+      "mean_us_over_5_trials": 1129.0944
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 0,
+      "mean_us_over_5_trials": 546.5794
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 1,
+      "mean_us_over_5_trials": 2152.4682000000003
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 2,
+      "mean_us_over_5_trials": 1757.7888
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 3,
+      "mean_us_over_5_trials": 2298.123
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 4,
+      "mean_us_over_5_trials": 1886.2742
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 5,
+      "mean_us_over_5_trials": 2160.0458
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 6,
+      "mean_us_over_5_trials": 1092.884
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 7,
+      "mean_us_over_5_trials": 955.1714000000001
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 8,
+      "mean_us_over_5_trials": 953.9792
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 9,
+      "mean_us_over_5_trials": 2430.676
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 10,
+      "mean_us_over_5_trials": 1499.5088
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 11,
+      "mean_us_over_5_trials": 2292.5446
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 12,
+      "mean_us_over_5_trials": 2571.3577999999998
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 13,
+      "mean_us_over_5_trials": 1509.2214
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 14,
+      "mean_us_over_5_trials": 2453.4626
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 15,
+      "mean_us_over_5_trials": 2721.6492
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 16,
+      "mean_us_over_5_trials": 2037.035
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 17,
+      "mean_us_over_5_trials": 2039.5344
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 18,
+      "mean_us_over_5_trials": 2305.6102
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 19,
+      "mean_us_over_5_trials": 952.8894
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 20,
+      "mean_us_over_5_trials": 821.5506
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 21,
+      "mean_us_over_5_trials": 553.8782
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 22,
+      "mean_us_over_5_trials": 1636.0144
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 23,
+      "mean_us_over_5_trials": 1627.5316
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 24,
+      "mean_us_over_5_trials": 2716.9386
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 25,
+      "mean_us_over_5_trials": 1768.9278
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 26,
+      "mean_us_over_5_trials": 1498.8986
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 27,
+      "mean_us_over_5_trials": 1372.44
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 28,
+      "mean_us_over_5_trials": 2170.9138
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 29,
+      "mean_us_over_5_trials": 2705.503
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 30,
+      "mean_us_over_5_trials": 1639.171
+    },
+    {
+      "implementation": "CPU simd-8",
+      "input_index": 31,
+      "mean_us_over_5_trials": 1489.1836
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 0,
+      "mean_us_over_5_trials": 185.74079871177673
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 1,
+      "mean_us_over_5_trials": 278.3232033252716
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 2,
+      "mean_us_over_5_trials": 255.3856074810028
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 3,
+      "mean_us_over_5_trials": 286.10560297966003
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 4,
+      "mean_us_over_5_trials": 263.34080696105957
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 5,
+      "mean_us_over_5_trials": 278.8864076137543
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 6,
+      "mean_us_over_5_trials": 215.85920453071594
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 7,
+      "mean_us_over_5_trials": 207.87200033664703
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 8,
+      "mean_us_over_5_trials": 208.05760324001312
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 9,
+      "mean_us_over_5_trials": 293.8816010951996
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 10,
+      "mean_us_over_5_trials": 239.6160066127777
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 11,
+      "mean_us_over_5_trials": 285.69599986076355
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 12,
+      "mean_us_over_5_trials": 301.8496036529541
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 13,
+      "mean_us_over_5_trials": 239.78240489959717
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 14,
+      "mean_us_over_5_trials": 294.4640040397644
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 15,
+      "mean_us_over_5_trials": 309.4528019428253
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 16,
+      "mean_us_over_5_trials": 271.123206615448
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 17,
+      "mean_us_over_5_trials": 270.33600211143494
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 18,
+      "mean_us_over_5_trials": 286.2912058830261
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 19,
+      "mean_us_over_5_trials": 207.66720175743103
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 20,
+      "mean_us_over_5_trials": 200.0192016363144
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 21,
+      "mean_us_over_5_trials": 184.3199998140335
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 22,
+      "mean_us_over_5_trials": 247.58399724960327
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 23,
+      "mean_us_over_5_trials": 247.19359874725342
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 24,
+      "mean_us_over_5_trials": 309.65760350227356
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 25,
+      "mean_us_over_5_trials": 255.14240264892578
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 26,
+      "mean_us_over_5_trials": 240.00640213489532
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 27,
+      "mean_us_over_5_trials": 233.24159979820251
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 28,
+      "mean_us_over_5_trials": 278.2912015914917
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 29,
+      "mean_us_over_5_trials": 309.6575975418091
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 30,
+      "mean_us_over_5_trials": 247.18720018863678
+    },
+    {
+      "implementation": "GPU device",
+      "input_index": 31,
+      "mean_us_over_5_trials": 239.8080050945282
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 0,
+      "mean_us_over_5_trials": 226.7624
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 1,
+      "mean_us_over_5_trials": 314.6568
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 2,
+      "mean_us_over_5_trials": 293.4296
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 3,
+      "mean_us_over_5_trials": 320.8034
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 4,
+      "mean_us_over_5_trials": 301.242
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 5,
+      "mean_us_over_5_trials": 318.3268
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 6,
+      "mean_us_over_5_trials": 253.0076
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 7,
+      "mean_us_over_5_trials": 243.4774
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 8,
+      "mean_us_over_5_trials": 244.633
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 9,
+      "mean_us_over_5_trials": 330.1476
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 10,
+      "mean_us_over_5_trials": 276.6758
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 11,
+      "mean_us_over_5_trials": 321.737
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 12,
+      "mean_us_over_5_trials": 338.6862
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 13,
+      "mean_us_over_5_trials": 276.39300000000003
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 14,
+      "mean_us_over_5_trials": 332.065
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 15,
+      "mean_us_over_5_trials": 342.8004
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 16,
+      "mean_us_over_5_trials": 312.3472
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 17,
+      "mean_us_over_5_trials": 309.1638
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 18,
+      "mean_us_over_5_trials": 325.0968
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 19,
+      "mean_us_over_5_trials": 244.4532
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 20,
+      "mean_us_over_5_trials": 236.3062
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 21,
+      "mean_us_over_5_trials": 218.7726
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 22,
+      "mean_us_over_5_trials": 284.6808
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 23,
+      "mean_us_over_5_trials": 284.23380000000003
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 24,
+      "mean_us_over_5_trials": 344.5148
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 25,
+      "mean_us_over_5_trials": 293.2008
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 26,
+      "mean_us_over_5_trials": 276.386
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 27,
+      "mean_us_over_5_trials": 266.979
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 28,
+      "mean_us_over_5_trials": 316.586
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 29,
+      "mean_us_over_5_trials": 344.1062
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 30,
+      "mean_us_over_5_trials": 285.992
+    },
+    {
+      "implementation": "GPU with transfers",
+      "input_index": 31,
+      "mean_us_over_5_trials": 388.6818
+    }
+  ],
+  "GPU_energy_trials": [
+    {
+      "platform": "GPU L40S",
+      "mode": "host_transfer",
+      "trial": 1,
+      "counter_read_overhead_s": 0.008120033890008926,
+      "elapsed_s": 12.012954480946064,
+      "energy_J": 1200.664,
+      "frames": 44672,
+      "frames_per_J": 37.206079302785795,
+      "frames_per_s": 3718.6522325423743,
+      "gross_uJ_per_frame": 26877.328080229225,
+      "incremental_uJ_per_frame": 4857.945223730817,
+      "mean_device_W": 99.94743607031826,
+      "mean_us_per_frame": 268.9146329008342,
+      "ordered_epochs": 1396,
+      "paired_background_W": 81.88242721852309
+    },
+    {
+      "platform": "GPU L40S",
+      "mode": "host_transfer",
+      "trial": 2,
+      "counter_read_overhead_s": 0.007836524397134781,
+      "elapsed_s": 12.010513298213482,
+      "energy_J": 1203.235,
+      "frames": 44672,
+      "frames_per_J": 37.12657959583955,
+      "frames_per_s": 3719.4080628214942,
+      "gross_uJ_per_frame": 26934.88090974212,
+      "incremental_uJ_per_frame": 4876.221889840891,
+      "mean_device_W": 100.18181322683158,
+      "mean_us_per_frame": 268.85998608106826,
+      "ordered_epochs": 1396,
+      "paired_background_W": 82.0451542136507
+    },
+    {
+      "platform": "GPU L40S",
+      "mode": "host_transfer",
+      "trial": 3,
+      "counter_read_overhead_s": 0.008660417050123215,
+      "elapsed_s": 12.008258368819952,
+      "energy_J": 1205.162,
+      "frames": 44672,
+      "frames_per_J": 37.067215859776525,
+      "frames_per_s": 3720.1064990401187,
+      "gross_uJ_per_frame": 26978.017550143268,
+      "incremental_uJ_per_frame": 4889.083844086772,
+      "mean_device_W": 100.36109841950635,
+      "mean_us_per_frame": 268.8095086143435,
+      "ordered_epochs": 1396,
+      "paired_background_W": 82.1731858367671
+    },
+    {
+      "platform": "GPU L40S",
+      "mode": "host_transfer",
+      "trial": 4,
+      "counter_read_overhead_s": 0.007920324802398682,
+      "elapsed_s": 12.008624874055386,
+      "energy_J": 1206.263,
+      "frames": 44672,
+      "frames_per_J": 37.033383267164794,
+      "frames_per_s": 3719.9929607688705,
+      "gross_uJ_per_frame": 27002.66386103152,
+      "incremental_uJ_per_frame": 4313.178758860495,
+      "mean_device_W": 100.44971948504522,
+      "mean_us_per_frame": 268.81771297581,
+      "ordered_epochs": 1396,
+      "paired_background_W": 84.40472486354636
+    },
+    {
+      "platform": "GPU L40S",
+      "mode": "host_transfer",
+      "trial": 5,
+      "counter_read_overhead_s": 0.008723881095647812,
+      "elapsed_s": 12.009821362793446,
+      "energy_J": 1206.912,
+      "frames": 44672,
+      "frames_per_J": 37.013469084738574,
+      "frames_per_s": 3719.622353284482,
+      "gross_uJ_per_frame": 27017.191977077364,
+      "incremental_uJ_per_frame": 4884.21085717111,
+      "mean_device_W": 100.49375120091513,
+      "mean_us_per_frame": 268.84449683903665,
+      "ordered_epochs": 1396,
+      "paired_background_W": 82.32633131842671
+    },
+    {
+      "platform": "GPU L40S",
+      "mode": "resident",
+      "trial": 1,
+      "counter_read_overhead_s": 0.013091549277305603,
+      "elapsed_s": 12.00948478281498,
+      "energy_J": 1201.071,
+      "frames": 48512,
+      "frames_per_J": 40.39061804006591,
+      "frames_per_s": 4039.4738723028686,
+      "gross_uJ_per_frame": 24758.224769129287,
+      "incremental_uJ_per_frame": 4592.6886182643875,
+      "mean_device_W": 100.01020207949946,
+      "mean_us_per_frame": 247.55699173019005,
+      "ordered_epochs": 1516,
+      "paired_background_W": 81.45815640239772
+    },
+    {
+      "platform": "GPU L40S",
+      "mode": "resident",
+      "trial": 2,
+      "counter_read_overhead_s": 0.007845167070627213,
+      "elapsed_s": 12.00711726769805,
+      "energy_J": 1190.422,
+      "frames": 48512,
+      "frames_per_J": 40.75193502808248,
+      "frames_per_s": 4040.2703595232315,
+      "gross_uJ_per_frame": 24538.712071240105,
+      "incremental_uJ_per_frame": 4060.4742210405348,
+      "mean_device_W": 99.14303104230632,
+      "mean_us_per_frame": 247.50818906039845,
+      "ordered_epochs": 1516,
+      "paired_background_W": 82.73761740142807
+    },
+    {
+      "platform": "GPU L40S",
+      "mode": "resident",
+      "trial": 3,
+      "counter_read_overhead_s": 0.007757917046546936,
+      "elapsed_s": 12.006596267223358,
+      "energy_J": 1204.055,
+      "frames": 48512,
+      "frames_per_J": 40.29051829027743,
+      "frames_per_s": 4040.44567838366,
+      "gross_uJ_per_frame": 24819.735323218996,
+      "incremental_uJ_per_frame": 4767.511300590583,
+      "mean_device_W": 100.28279232532647,
+      "mean_us_per_frame": 247.49744943979547,
+      "ordered_epochs": 1516,
+      "paired_background_W": 81.01992189420999
+    },
+    {
+      "platform": "GPU L40S",
+      "mode": "resident",
+      "trial": 4,
+      "counter_read_overhead_s": 0.007832996547222137,
+      "elapsed_s": 12.006222918629646,
+      "energy_J": 1198.195,
+      "frames": 48512,
+      "frames_per_J": 40.48756671493371,
+      "frames_per_s": 4040.5713211209486,
+      "gross_uJ_per_frame": 24698.940468337732,
+      "incremental_uJ_per_frame": 3933.8455969305796,
+      "mean_device_W": 99.79783051843904,
+      "mean_us_per_frame": 247.48975343481297,
+      "ordered_epochs": 1516,
+      "paired_background_W": 83.90284681776342
+    },
+    {
+      "platform": "GPU L40S",
+      "mode": "resident",
+      "trial": 5,
+      "counter_read_overhead_s": 0.008136488497257233,
+      "elapsed_s": 12.006263319402933,
+      "energy_J": 1201.784,
+      "frames": 48512,
+      "frames_per_J": 40.366654906372524,
+      "frames_per_s": 4040.557724700351,
+      "gross_uJ_per_frame": 24772.92216358839,
+      "incremental_uJ_per_frame": 4473.127379636894,
+      "mean_device_W": 100.09642201148762,
+      "mean_us_per_frame": 247.49058623439424,
+      "ordered_epochs": 1516,
+      "paired_background_W": 82.02249262412712
+    }
+  ],
+  "CPU_energy_trials": [
+    {
+      "trial": 1,
+      "frames": 13344,
+      "elapsed_s": 12.017198278917931,
+      "energy_J": 2826.3937334405746,
+      "energy_lower_J": 2816.158853,
+      "energy_upper_J": 2863.053232,
+      "package_energy_J": {
+        "package-0": 1435.9836076484467,
+        "package-1": 1390.4101257921282
+      },
+      "boundary_bracket_max_s": 0.10062904946971685,
+      "mean_package_W": 235.19573097158488,
+      "frames_per_s": 1110.4085736364782,
+      "mean_us_per_frame": 900.5694153865356,
+      "gross_uJ_per_frame": 211810.0819424891,
+      "frames_per_J": 4.721210580861402,
+      "paired_background_W": 232.47696850444527,
+      "incremental_energy_J": 32.671907640896734,
+      "incremental_uJ_per_frame": 2448.4343256067696,
+      "background_before": {
+        "elapsed_s": 2.0000670299632475,
+        "energy_J": 468.1905587045438,
+        "energy_lower_J": 447.318267,
+        "energy_upper_J": 494.91038,
+        "package_energy_J": {
+          "package-0": 231.3531958025807,
+          "package-1": 236.83736290196308
+        },
+        "boundary_bracket_max_s": 0.10062366351485252
+      },
+      "background_after": {
+        "elapsed_s": 2.00007900595665,
+        "energy_J": 461.75126530118774,
+        "energy_lower_J": 418.22651,
+        "energy_upper_J": 464.625187,
+        "package_energy_J": {
+          "package-0": 230.37402802599334,
+          "package-1": 231.3772372751944
+        },
+        "boundary_bracket_max_s": 0.10064280044753104
+      },
+      "incremental_energy_bounds_J": [
+        -66.46819630501886,
+        262.79236374926586
+      ]
+    },
+    {
+      "trial": 2,
+      "frames": 13344,
+      "elapsed_s": 12.017704871017486,
+      "energy_J": 2831.195334907833,
+      "energy_lower_J": 2797.024008,
+      "energy_upper_J": 2844.201699,
+      "package_energy_J": {
+        "package-0": 1440.7334190188408,
+        "package-1": 1390.4619158889923
+      },
+      "boundary_bracket_max_s": 0.10064698953647166,
+      "mean_package_W": 235.58536054048798,
+      "frames_per_s": 1110.3617656796578,
+      "mean_us_per_frame": 900.6073794227732,
+      "gross_uJ_per_frame": 212169.91418673808,
+      "frames_per_J": 4.713203584179543,
+      "paired_background_W": 231.3384185547271,
+      "incremental_energy_J": 51.03849538920713,
+      "incremental_uJ_per_frame": 3824.827292356649,
+      "background_before": {
+        "elapsed_s": 2.000077057047747,
+        "energy_J": 462.1311264583378,
+        "energy_lower_J": 441.550362,
+        "energy_upper_J": 488.521047,
+        "package_energy_J": {
+          "package-0": 230.148236012506,
+          "package-1": 231.98289044583177
+        },
+        "boundary_bracket_max_s": 0.10063958552200347
+      },
+      "background_after": {
+        "elapsed_s": 2.0000831849174574,
+        "energy_J": 463.2596178833871,
+        "energy_lower_J": 442.399042,
+        "energy_upper_J": 489.763475,
+        "package_energy_J": {
+          "package-0": 233.13615198534964,
+          "package-1": 230.12346589803744
+        },
+        "boundary_bracket_max_s": 0.10064698953647166
+      },
+      "incremental_energy_bounds_J": [
+        -142.04191789514562,
+        188.5473212731472
+      ]
+    },
+    {
+      "trial": 3,
+      "frames": 13344,
+      "elapsed_s": 12.020258434931748,
+      "energy_J": 2833.6074032923834,
+      "energy_lower_J": 2799.295405,
+      "energy_upper_J": 2846.547753,
+      "package_energy_J": {
+        "package-0": 1443.2130658846288,
+        "package-1": 1390.3943374077544
+      },
+      "boundary_bracket_max_s": 0.10063818842172623,
+      "mean_package_W": 235.73598010652697,
+      "frames_per_s": 1110.1258822540256,
+      "mean_us_per_frame": 900.7987436249811,
+      "gross_uJ_per_frame": 212350.674707163,
+      "frames_per_J": 4.709191536024199,
+      "paired_background_W": 231.82753602640656,
+      "incremental_energy_J": 46.98050792152617,
+      "incremental_uJ_per_frame": 3520.721516900942,
+      "background_before": {
+        "elapsed_s": 2.000068777007982,
+        "energy_J": 463.1184343678069,
+        "energy_lower_J": 442.587936,
+        "energy_upper_J": 489.670417,
+        "package_energy_J": {
+          "package-0": 232.89464676956032,
+          "package-1": 230.2237875982466
+        },
+        "boundary_bracket_max_s": 0.10063587699551135
+      },
+      "background_after": {
+        "elapsed_s": 2.000076027936302,
+        "energy_J": 464.22527951125716,
+        "energy_lower_J": 443.679815,
+        "energy_upper_J": 490.675812,
+        "package_energy_J": {
+          "package-0": 232.82145820182419,
+          "package-1": 231.40382130943297
+        },
+        "boundary_bracket_max_s": 0.1006394705036655
+      },
+      "incremental_energy_bounds_J": [
+        -146.60170695590432,
+        183.35231157544285
+      ]
+    },
+    {
+      "trial": 4,
+      "frames": 13344,
+      "elapsed_s": 12.018288727966137,
+      "energy_J": 2834.597729823226,
+      "energy_lower_J": 2824.262208,
+      "energy_upper_J": 2871.134495,
+      "package_energy_J": {
+        "package-0": 1444.4450312606841,
+        "package-1": 1390.152698562542
+      },
+      "boundary_bracket_max_s": 0.10063373995944858,
+      "mean_package_W": 235.8570170832405,
+      "frames_per_s": 1110.3078235214118,
+      "mean_us_per_frame": 900.6511336905079,
+      "gross_uJ_per_frame": 212424.88982488203,
+      "frames_per_J": 4.70754628059064,
+      "paired_background_W": 231.8338061860543,
+      "incremental_energy_J": 48.35211017588381,
+      "incremental_uJ_per_frame": 3623.509455626784,
+      "background_before": {
+        "elapsed_s": 2.000077374977991,
+        "energy_J": 464.16072891933345,
+        "energy_lower_J": 420.496686,
+        "energy_upper_J": 467.018512,
+        "package_energy_J": {
+          "package-0": 232.77497961918735,
+          "package-1": 231.3857493001461
+        },
+        "boundary_bracket_max_s": 0.10062284045852721
+      },
+      "background_after": {
+        "elapsed_s": 2.000073950039223,
+        "energy_J": 463.2095780795956,
+        "energy_lower_J": 442.576553,
+        "energy_upper_J": 489.605875,
+        "package_energy_J": {
+          "package-0": 232.32242320422841,
+          "package-1": 230.88715487536717
+        },
+        "boundary_bracket_max_s": 0.10063373995944858
+      },
+      "incremental_energy_bounds_J": [
+        -49.87608153836936,
+        278.06674908459036
+      ]
+    },
+    {
+      "trial": 5,
+      "frames": 13344,
+      "elapsed_s": 12.019532331964001,
+      "energy_J": 2827.4287044233806,
+      "energy_lower_J": 2816.8947,
+      "energy_upper_J": 2863.970025,
+      "package_energy_J": {
+        "package-0": 1446.0004512040214,
+        "package-1": 1381.4282532193595
+      },
+      "boundary_bracket_max_s": 0.10064021253492683,
+      "mean_package_W": 235.2361661280524,
+      "frames_per_s": 1110.192945237461,
+      "mean_us_per_frame": 900.744329433753,
+      "gross_uJ_per_frame": 211887.6427175795,
+      "frames_per_J": 4.719482397248048,
+      "paired_background_W": 231.5482769736651,
+      "incremental_energy_J": 44.32670292785724,
+      "incremental_uJ_per_frame": 3321.8452433945777,
+      "background_before": {
+        "elapsed_s": 2.0000696590868756,
+        "energy_J": 463.507241285758,
+        "energy_lower_J": 442.835101,
+        "energy_upper_J": 489.906733,
+        "package_energy_J": {
+          "package-0": 232.65610678899478,
+          "package-1": 230.85113449676322
+        },
+        "boundary_bracket_max_s": 0.10062228795140982
+      },
+      "background_after": {
+        "elapsed_s": 2.000069441040978,
+        "energy_J": 462.71807500383375,
+        "energy_lower_J": 442.190053,
+        "energy_upper_J": 489.066551,
+        "package_energy_J": {
+          "package-0": 232.00299791526032,
+          "package-1": 230.71507708857345
+        },
+        "boundary_bracket_max_s": 0.10064400802366436
+      },
+      "incremental_energy_bounds_J": [
+        -124.70326562846594,
+        204.66538912760825
+      ]
+    }
+  ],
+  "CPU_energy_validation": {
+    "passed": true,
+    "final_sha256": "c2b9719f414bc7e402482a7cb7d5d68e310c00fc674bf5aa2f4aecdd419801b2",
+    "raw_samples_sha256": "93e7e7bf0eeaef110ad31d86e979c163daf6701a1306fa1925bdaad0d15057ee",
+    "windows_sha256": "f51a53a29b1ca6e76c8473747032a5c115083dd52126ecb4a83b10d9f2a40c42",
+    "binary_sha256": "3e29fbf365d2d3a1e477b754af6e85303ac477348afd2d9dc3b28b5d95e17df9",
+    "preservation_rechecked": true,
+    "source_files_checked": 17,
+    "prior_failed_receipt_preserved": true,
+    "stages": {
+      "compile-energy": {
+        "actual_exit": 0,
+        "reaped": true,
+        "cleanup_ok": true
+      },
+      "matched-cpu-energy": {
+        "actual_exit": 0,
+        "reaped": true,
+        "cleanup_ok": true
+      }
+    },
+    "input_sha256": "12575d3aa73a6e6bd3e05198166fa6545dc02934238e5c49f9cff9127c8dacc0",
+    "golden_sha256": "f7941edddb3650a57a079adbd0778dff8bfdf202ef4fc9fed5fbfb52b893a60a",
+    "correctness": {
+      "validation_passes": 11,
+      "cases": 32,
+      "field_comparisons": 1760,
+      "output_mismatches": 0
+    },
+    "package_names": [
+      "package-0",
+      "package-1"
+    ],
+    "counter_ranges_uj": {
+      "package-0": 65532610987,
+      "package-1": 65532610987
+    },
+    "sampling_validation": {
+      "counter_wraps": {
+        "package-0": 0,
+        "package-1": 0
+      },
+      "sample_count": 1790,
+      "max_sampling_gap_s": 0.10071247234009206,
+      "max_read_span_s": 0.0005656889406964183,
+      "max_observed_interval_package_W": 122.54626645423758,
+      "assumed_max_package_W_for_wrap_validation": 2000.0,
+      "interpolation": "piecewise linear cumulative energy at CLOCK_MONOTONIC boundaries",
+      "bounds": "conservative monotonic-counter boundary brackets including sample read spans; not a confidence interval"
+    },
+    "trials": [
+      {
+        "trial": 1,
+        "frames": 13344,
+        "elapsed_s": 12.017198278917931,
+        "energy_J": 2826.3937334405746,
+        "energy_lower_J": 2816.158853,
+        "energy_upper_J": 2863.053232,
+        "package_energy_J": {
+          "package-0": 1435.9836076484467,
+          "package-1": 1390.4101257921282
+        },
+        "boundary_bracket_max_s": 0.10062904946971685,
+        "mean_package_W": 235.19573097158488,
+        "frames_per_s": 1110.4085736364782,
+        "mean_us_per_frame": 900.5694153865356,
+        "gross_uJ_per_frame": 211810.0819424891,
+        "frames_per_J": 4.721210580861402,
+        "paired_background_W": 232.47696850444527,
+        "incremental_energy_J": 32.671907640896734,
+        "incremental_uJ_per_frame": 2448.4343256067696,
+        "background_before": {
+          "elapsed_s": 2.0000670299632475,
+          "energy_J": 468.1905587045438,
+          "energy_lower_J": 447.318267,
+          "energy_upper_J": 494.91038,
+          "package_energy_J": {
+            "package-0": 231.3531958025807,
+            "package-1": 236.83736290196308
+          },
+          "boundary_bracket_max_s": 0.10062366351485252
+        },
+        "background_after": {
+          "elapsed_s": 2.00007900595665,
+          "energy_J": 461.75126530118774,
+          "energy_lower_J": 418.22651,
+          "energy_upper_J": 464.625187,
+          "package_energy_J": {
+            "package-0": 230.37402802599334,
+            "package-1": 231.3772372751944
+          },
+          "boundary_bracket_max_s": 0.10064280044753104
+        },
+        "incremental_energy_bounds_J": [
+          -66.46819630501886,
+          262.79236374926586
+        ]
+      },
+      {
+        "trial": 2,
+        "frames": 13344,
+        "elapsed_s": 12.017704871017486,
+        "energy_J": 2831.195334907833,
+        "energy_lower_J": 2797.024008,
+        "energy_upper_J": 2844.201699,
+        "package_energy_J": {
+          "package-0": 1440.7334190188408,
+          "package-1": 1390.4619158889923
+        },
+        "boundary_bracket_max_s": 0.10064698953647166,
+        "mean_package_W": 235.58536054048798,
+        "frames_per_s": 1110.3617656796578,
+        "mean_us_per_frame": 900.6073794227732,
+        "gross_uJ_per_frame": 212169.91418673808,
+        "frames_per_J": 4.713203584179543,
+        "paired_background_W": 231.3384185547271,
+        "incremental_energy_J": 51.03849538920713,
+        "incremental_uJ_per_frame": 3824.827292356649,
+        "background_before": {
+          "elapsed_s": 2.000077057047747,
+          "energy_J": 462.1311264583378,
+          "energy_lower_J": 441.550362,
+          "energy_upper_J": 488.521047,
+          "package_energy_J": {
+            "package-0": 230.148236012506,
+            "package-1": 231.98289044583177
+          },
+          "boundary_bracket_max_s": 0.10063958552200347
+        },
+        "background_after": {
+          "elapsed_s": 2.0000831849174574,
+          "energy_J": 463.2596178833871,
+          "energy_lower_J": 442.399042,
+          "energy_upper_J": 489.763475,
+          "package_energy_J": {
+            "package-0": 233.13615198534964,
+            "package-1": 230.12346589803744
+          },
+          "boundary_bracket_max_s": 0.10064698953647166
+        },
+        "incremental_energy_bounds_J": [
+          -142.04191789514562,
+          188.5473212731472
+        ]
+      },
+      {
+        "trial": 3,
+        "frames": 13344,
+        "elapsed_s": 12.020258434931748,
+        "energy_J": 2833.6074032923834,
+        "energy_lower_J": 2799.295405,
+        "energy_upper_J": 2846.547753,
+        "package_energy_J": {
+          "package-0": 1443.2130658846288,
+          "package-1": 1390.3943374077544
+        },
+        "boundary_bracket_max_s": 0.10063818842172623,
+        "mean_package_W": 235.73598010652697,
+        "frames_per_s": 1110.1258822540256,
+        "mean_us_per_frame": 900.7987436249811,
+        "gross_uJ_per_frame": 212350.674707163,
+        "frames_per_J": 4.709191536024199,
+        "paired_background_W": 231.82753602640656,
+        "incremental_energy_J": 46.98050792152617,
+        "incremental_uJ_per_frame": 3520.721516900942,
+        "background_before": {
+          "elapsed_s": 2.000068777007982,
+          "energy_J": 463.1184343678069,
+          "energy_lower_J": 442.587936,
+          "energy_upper_J": 489.670417,
+          "package_energy_J": {
+            "package-0": 232.89464676956032,
+            "package-1": 230.2237875982466
+          },
+          "boundary_bracket_max_s": 0.10063587699551135
+        },
+        "background_after": {
+          "elapsed_s": 2.000076027936302,
+          "energy_J": 464.22527951125716,
+          "energy_lower_J": 443.679815,
+          "energy_upper_J": 490.675812,
+          "package_energy_J": {
+            "package-0": 232.82145820182419,
+            "package-1": 231.40382130943297
+          },
+          "boundary_bracket_max_s": 0.1006394705036655
+        },
+        "incremental_energy_bounds_J": [
+          -146.60170695590432,
+          183.35231157544285
+        ]
+      },
+      {
+        "trial": 4,
+        "frames": 13344,
+        "elapsed_s": 12.018288727966137,
+        "energy_J": 2834.597729823226,
+        "energy_lower_J": 2824.262208,
+        "energy_upper_J": 2871.134495,
+        "package_energy_J": {
+          "package-0": 1444.4450312606841,
+          "package-1": 1390.152698562542
+        },
+        "boundary_bracket_max_s": 0.10063373995944858,
+        "mean_package_W": 235.8570170832405,
+        "frames_per_s": 1110.3078235214118,
+        "mean_us_per_frame": 900.6511336905079,
+        "gross_uJ_per_frame": 212424.88982488203,
+        "frames_per_J": 4.70754628059064,
+        "paired_background_W": 231.8338061860543,
+        "incremental_energy_J": 48.35211017588381,
+        "incremental_uJ_per_frame": 3623.509455626784,
+        "background_before": {
+          "elapsed_s": 2.000077374977991,
+          "energy_J": 464.16072891933345,
+          "energy_lower_J": 420.496686,
+          "energy_upper_J": 467.018512,
+          "package_energy_J": {
+            "package-0": 232.77497961918735,
+            "package-1": 231.3857493001461
+          },
+          "boundary_bracket_max_s": 0.10062284045852721
+        },
+        "background_after": {
+          "elapsed_s": 2.000073950039223,
+          "energy_J": 463.2095780795956,
+          "energy_lower_J": 442.576553,
+          "energy_upper_J": 489.605875,
+          "package_energy_J": {
+            "package-0": 232.32242320422841,
+            "package-1": 230.88715487536717
+          },
+          "boundary_bracket_max_s": 0.10063373995944858
+        },
+        "incremental_energy_bounds_J": [
+          -49.87608153836936,
+          278.06674908459036
+        ]
+      },
+      {
+        "trial": 5,
+        "frames": 13344,
+        "elapsed_s": 12.019532331964001,
+        "energy_J": 2827.4287044233806,
+        "energy_lower_J": 2816.8947,
+        "energy_upper_J": 2863.970025,
+        "package_energy_J": {
+          "package-0": 1446.0004512040214,
+          "package-1": 1381.4282532193595
+        },
+        "boundary_bracket_max_s": 0.10064021253492683,
+        "mean_package_W": 235.2361661280524,
+        "frames_per_s": 1110.192945237461,
+        "mean_us_per_frame": 900.744329433753,
+        "gross_uJ_per_frame": 211887.6427175795,
+        "frames_per_J": 4.719482397248048,
+        "paired_background_W": 231.5482769736651,
+        "incremental_energy_J": 44.32670292785724,
+        "incremental_uJ_per_frame": 3321.8452433945777,
+        "background_before": {
+          "elapsed_s": 2.0000696590868756,
+          "energy_J": 463.507241285758,
+          "energy_lower_J": 442.835101,
+          "energy_upper_J": 489.906733,
+          "package_energy_J": {
+            "package-0": 232.65610678899478,
+            "package-1": 230.85113449676322
+          },
+          "boundary_bracket_max_s": 0.10062228795140982
+        },
+        "background_after": {
+          "elapsed_s": 2.000069441040978,
+          "energy_J": 462.71807500383375,
+          "energy_lower_J": 442.190053,
+          "energy_upper_J": 489.066551,
+          "package_energy_J": {
+            "package-0": 232.00299791526032,
+            "package-1": 230.71507708857345
+          },
+          "boundary_bracket_max_s": 0.10064400802366436
+        },
+        "incremental_energy_bounds_J": [
+          -124.70326562846594,
+          204.66538912760825
+        ]
+      }
+    ],
+    "summary": {
+      "frames": 66720,
+      "active_seconds": 60.0929826447973,
+      "package_energy_J": 14153.222905887398,
+      "energy_lower_J": 14053.635174,
+      "energy_upper_J": 14288.907204,
+      "gross_uJ_per_frame": 212128.64067577035,
+      "gross_uJ_per_frame_bounds": [
+        210636.01879496404,
+        214162.27823741006
+      ],
+      "frames_per_J": 4.714120624232244,
+      "frames_per_J_bounds": [
+        4.669356378864479,
+        4.747526115053541
+      ],
+      "mean_package_W": 235.52205736808685,
+      "mean_us_per_frame": 900.6742003117101,
+      "throughput_frames_s": 1110.279388100508,
+      "incremental_uJ_per_frame": 3347.8675667771445,
+      "trial_gross_uJ_range": [
+        211810.0819424891,
+        212424.88982488203
+      ],
+      "trial_gross_uJ_sample_std": 273.0960703467672,
+      "trials": 5,
+      "incremental_uJ_per_frame_sampling_bounds": [
+        -7939.0163117941265,
+        16747.963651229835
+      ]
+    },
+    "boundary": "gross sum of sampled CPU package counters on shared Supernova; includes background and other package activity; excludes DRAM/whole-server energy",
+    "incremental_boundary": "paired idle-window adjustment; not isolated causal process energy",
+    "interpolation_bounds_are_statistical_CI": false,
+    "whole_host_energy_measured": false
+  },
+  "energy_summary": [
+    {
+      "platform": "CPU / Supernova EPYC 9554 simd-1",
+      "power_W": 235.52205736808685,
+      "gross_uJ_per_frame": 212128.64067577035,
+      "frames_per_J": 4.714120624232244,
+      "evidence": "measured CPU package cumulative counters; 5 active windows",
+      "boundary": "sum of 2 CPU packages on shared Supernova; includes background; excludes DRAM/whole-server"
+    },
+    {
+      "platform": "GPU / Bahama L40S / resident",
+      "power_W": 99.86605540294245,
+      "gross_uJ_per_frame": 24717.706959102903,
+      "frames_per_J": 40.456827231367654,
+      "evidence": "measured NVML cumulative device energy, 5 active windows",
+      "boundary": "whole GPU device, shared host; resident"
+    },
+    {
+      "platform": "GPU / Bahama L40S / host_transfer",
+      "power_W": 100.28673958513926,
+      "gross_uJ_per_frame": 26962.016475644697,
+      "frames_per_J": 37.08921403943651,
+      "evidence": "measured NVML cumulative device energy, 5 active windows",
+      "boundary": "whole GPU device, shared host; host_transfer"
+    },
+    {
+      "platform": "FPGA / RelayHLS C4V8 b128",
+      "power_W": 4.741,
+      "gross_uJ_per_frame": 1050.619364193548,
+      "frames_per_J": 951.8195019826201,
+      "evidence": "postroute vectorless estimate, confidence Medium; not board measurement",
+      "boundary": "estimated FPGA on-chip power divided by validated sustained RTL service rate"
+    }
+  ],
+  "limitations": [
+    "Percentages are numeric values on a 0 to 100 scale, with no percent sign; used resource / VCU118 capacity * 100.",
+    "BRAM18-equivalent = 2 * RAMB36 primitives + RAMB18 primitives; VCU118 capacity is4320 BRAM18-equivalent or2160 BRAM36-equivalent. BRAM36-equivalent is not the physical count of RAMB36 primitives.",
+    "FPGA power and energy are post-route vectorless on-chip estimates, not board measurements.",
+    "CPU energy is measured over matching active windows from both CPU-package counters on shared Supernova; background activity is included. Paired-background-adjusted energy is separate and is not isolated process energy.",
+    "CPU/GPU hardware cycles and benchmark memory/resource usage were not measured; blank means unavailable, never zero.",
+    "Software throughput from reciprocal mean latency differs from independently measured sustained throughput. Energy-window throughput and FPGA31-interval service throughput are separately labeled.",
+    "The validated workload contains32 inputs; native/scalar/RTL output equivalence does not by itself establish general decoding success rates.",
+    "GPU total-device counters exclude host CPU/RAM and whole-server energy; CPU package counters exclude DRAM and whole-server power; FPGA figures exclude board I/O and board power. CPU/GPU measured energy versus FPGA estimated energy is not a matched measured whole-platform comparison.",
+    "CPU correctness: 11 full 32-input validation passes, 1,760 output-field comparisons, zero mismatches. Five matched active windows contain 66,720 decodings; raw samples remain remote.",
+    "CPU paired-background adjustment is a point estimate whose conservative sampling bounds include zero. It must not support an isolated decoding-energy ranking.",
+    "CPU counter-wrap admissibility assumes at most 2,000 W per package. No wraps observed; all window endpoints bracketed. Sampling bounds are not confidence intervals or counter-accuracy bounds.",
+    "Only the nine latest-design C1/C2/C4 x V2/V4/V8 points are included. All nine passed full-group CNU II=1, VNU II=1, 32-input RTL verification and routed 100 MHz timing. All vendor workflows are closed."
+  ],
+  "release_scope": {
+    "BB72": [
+      "C1V2",
+      "C1V4",
+      "C1V8",
+      "C2V2",
+      "C2V4",
+      "C2V8",
+      "C4V2",
+      "C4V4",
+      "C4V8"
+    ],
+    "BB144": [
+      "C4V8"
+    ]
+  },
+  "BB72_results": [
+    {
+      "variant_id": "C1V2_b64_289532be1e6a",
+      "point": "C1V2",
+      "C": 1,
+      "V": 2,
+      "banks": 64,
+      "design_generation": "latest CNU/VNU gather",
+      "latest_design": true,
+      "status": "validated_RTL_and_route",
+      "CNU_II": 1,
+      "VNU_II": 1,
+      "clock_MHz": 100,
+      "latency_mean_us": 505.6309375,
+      "latency_min_us": 228.84,
+      "latency_max_us": 718.41,
+      "latency_mean_cycles": 50563.09375,
+      "latency_min_cycles": 22884,
+      "latency_max_cycles": 71841,
+      "latency_sum_cycles": 1618019,
+      "latency_count": 32,
+      "service_mean_cycles": 50793.45161290323,
+      "service_sum_cycles": 1574597,
+      "service_count": 31,
+      "throughput_frames_s": 1968.7577202293667,
+      "throughput_basis": "31 RTL start-to-start service intervals",
+      "lut": 54933,
+      "ff": 42128,
+      "bram18_equiv": 1445,
+      "bram36_equiv": 722.5,
+      "dsp": 1,
+      "ramb18_primitive": null,
+      "ramb36_primitive": null,
+      "power_total_W_est": 3.598,
+      "power_dynamic_W_est": 1.112,
+      "power_static_W_est": 2.486,
+      "power_confidence": "Medium",
+      "energy_uJ_frame_est": 1827.548389032258,
+      "energy_efficiency_frames_J_est": 547.1811340270614,
+      "energy_status": "postroute vectorless estimate; not board measurement",
+      "controller_final_sha256": "289532be1e6a5fd482c1464ba6550146b97a7829177cd5a83b79720a2b6b923c",
+      "power_report_sha256": "353665b6465c53254b72f35169990dc7e60d0df901c1733584ab4396aabd508f",
+      "implementation_label": "20261019-fixed64-dual-gather-sweep-official-v1",
+      "source_id": "FPGA_SAVED_REPORTS_20261019",
+      "lut_pct": 4.646518473406415,
+      "ff_pct": 1.7817025307890106,
+      "bram18_equiv_pct": 33.449074074074076,
+      "dsp_pct": 0.014619883040935672,
+      "native32_pass": true
+    },
+    {
+      "variant_id": "C1V4_b64_ce110007ffe1",
+      "point": "C1V4",
+      "C": 1,
+      "V": 4,
+      "banks": 64,
+      "design_generation": "latest CNU/VNU gather",
+      "latest_design": true,
+      "status": "validated_RTL_and_route",
+      "CNU_II": 1,
+      "VNU_II": 1,
+      "clock_MHz": 100,
+      "latency_mean_us": 348.4809375,
+      "latency_min_us": 172.84,
+      "latency_max_us": 483.21,
+      "latency_mean_cycles": 34848.09375,
+      "latency_min_cycles": 17284,
+      "latency_max_cycles": 48321,
+      "latency_sum_cycles": 1115139,
+      "latency_count": 32,
+      "service_mean_cycles": 35005.06451612903,
+      "service_sum_cycles": 1085157,
+      "service_count": 31,
+      "throughput_frames_s": 2856.729487069613,
+      "throughput_basis": "31 RTL start-to-start service intervals",
+      "lut": 95866,
+      "ff": 47732,
+      "bram18_equiv": 601,
+      "bram36_equiv": 300.5,
+      "dsp": 1,
+      "ramb18_primitive": null,
+      "ramb36_primitive": null,
+      "power_total_W_est": 3.607,
+      "power_dynamic_W_est": 1.122,
+      "power_static_W_est": 2.486,
+      "power_confidence": "Medium",
+      "energy_uJ_frame_est": 1262.6326770967744,
+      "energy_efficiency_frames_J_est": 791.9959764540096,
+      "energy_status": "postroute vectorless estimate; not board measurement",
+      "controller_final_sha256": "ce110007ffe134a36eba86753b6530873780fc89594f8a117444e1434d23383e",
+      "power_report_sha256": "7c1be2ad07d621dadebcc885a03b6e03f2d6238d3bde07deeb8c5a8755312154",
+      "implementation_label": "20261019-fixed64-dual-gather-sweep-official-v1",
+      "source_id": "FPGA_SAVED_REPORTS_20261019",
+      "lut_pct": 8.108844227906348,
+      "ff_pct": 2.0187102449587226,
+      "bram18_equiv_pct": 13.912037037037036,
+      "dsp_pct": 0.014619883040935672,
+      "native32_pass": true
+    },
+    {
+      "variant_id": "C1V8_b64_ac32970962b2",
+      "point": "C1V8",
+      "C": 1,
+      "V": 8,
+      "banks": 64,
+      "design_generation": "latest CNU/VNU gather",
+      "latest_design": true,
+      "status": "validated_RTL_and_route",
+      "CNU_II": 1,
+      "VNU_II": 1,
+      "clock_MHz": 100,
+      "latency_mean_us": 269.9059375,
+      "latency_min_us": 144.84,
+      "latency_max_us": 365.61,
+      "latency_mean_cycles": 26990.59375,
+      "latency_min_cycles": 14484,
+      "latency_max_cycles": 36561,
+      "latency_sum_cycles": 863699,
+      "latency_count": 32,
+      "service_mean_cycles": 27110.870967741936,
+      "service_sum_cycles": 840437,
+      "service_count": 31,
+      "throughput_frames_s": 3688.5572624717856,
+      "throughput_basis": "31 RTL start-to-start service intervals",
+      "lut": 97810,
+      "ff": 48216,
+      "bram18_equiv": 609,
+      "bram36_equiv": 304.5,
+      "dsp": 1,
+      "ramb18_primitive": null,
+      "ramb36_primitive": null,
+      "power_total_W_est": 3.82,
+      "power_dynamic_W_est": 1.332,
+      "power_static_W_est": 2.489,
+      "power_confidence": "Medium",
+      "energy_uJ_frame_est": 1035.6352709677417,
+      "energy_efficiency_frames_J_est": 965.5909064062266,
+      "energy_status": "postroute vectorless estimate; not board measurement",
+      "controller_final_sha256": "ac32970962b2756677d5f8d31ba71b6c74c3c9736803f2025bf19d4b0301eec8",
+      "power_report_sha256": "08af451c0de02e8e4c928b0ff134fcbfcf0fcca362ab5f144a6ded72809201a8",
+      "implementation_label": "20261019-fixed64-dual-gather-sweep-official-v1",
+      "source_id": "FPGA_SAVED_REPORTS_20261019",
+      "lut_pct": 8.273277845445934,
+      "ff_pct": 2.039179861956963,
+      "bram18_equiv_pct": 14.097222222222221,
+      "dsp_pct": 0.014619883040935672,
+      "native32_pass": true
+    },
+    {
+      "variant_id": "C2V2_b64_47fbc980ed34",
+      "point": "C2V2",
+      "C": 2,
+      "V": 2,
+      "banks": 64,
+      "design_generation": "latest CNU/VNU gather",
+      "latest_design": true,
+      "status": "validated_RTL_and_route",
+      "CNU_II": 1,
+      "VNU_II": 1,
+      "clock_MHz": 100,
+      "latency_mean_us": 472.7921875,
+      "latency_min_us": 218.76,
+      "latency_max_us": 668.01,
+      "latency_mean_cycles": 47279.21875,
+      "latency_min_cycles": 21876,
+      "latency_max_cycles": 66801,
+      "latency_sum_cycles": 1512935,
+      "latency_count": 32,
+      "service_mean_cycles": 47493.06451612903,
+      "service_sum_cycles": 1472285,
+      "service_count": 31,
+      "throughput_frames_s": 2105.5705926502,
+      "throughput_basis": "31 RTL start-to-start service intervals",
+      "lut": 64298,
+      "ff": 44253,
+      "bram18_equiv": 1472,
+      "bram36_equiv": 736.0,
+      "dsp": 1,
+      "ramb18_primitive": null,
+      "ramb36_primitive": null,
+      "power_total_W_est": 3.898,
+      "power_dynamic_W_est": 1.408,
+      "power_static_W_est": 2.49,
+      "power_confidence": "Medium",
+      "energy_uJ_frame_est": 1851.2796548387098,
+      "energy_efficiency_frames_J_est": 540.1669042201642,
+      "energy_status": "postroute vectorless estimate; not board measurement",
+      "controller_final_sha256": "47fbc980ed34b768b1284069f3369fa751e55ab39248424441ead2eb753a1043",
+      "power_report_sha256": "ed7ae52fc5ab1f1d89b58696a88d262903fcf73f43d9f5e001e75fa7b10b8f51",
+      "implementation_label": "20261019-fixed64-dual-gather-sweep-official-v1",
+      "source_id": "FPGA_SAVED_REPORTS_20261019",
+      "lut_pct": 5.438658817160644,
+      "ff_pct": 1.8715742996345919,
+      "bram18_equiv_pct": 34.074074074074076,
+      "dsp_pct": 0.014619883040935672,
+      "native32_pass": true
+    },
+    {
+      "variant_id": "C2V4_b64_cf3b0cc8ffdd",
+      "point": "C2V4",
+      "C": 2,
+      "V": 4,
+      "banks": 64,
+      "design_generation": "latest CNU/VNU gather",
+      "latest_design": true,
+      "status": "validated_RTL_and_route",
+      "CNU_II": 1,
+      "VNU_II": 1,
+      "clock_MHz": 100,
+      "latency_mean_us": 315.6421875,
+      "latency_min_us": 162.76,
+      "latency_max_us": 432.81,
+      "latency_mean_cycles": 31564.21875,
+      "latency_min_cycles": 16276,
+      "latency_max_cycles": 43281,
+      "latency_sum_cycles": 1010055,
+      "latency_count": 32,
+      "service_mean_cycles": 31704.677419354837,
+      "service_sum_cycles": 982845,
+      "service_count": 31,
+      "throughput_frames_s": 3154.108735355015,
+      "throughput_basis": "31 RTL start-to-start service intervals",
+      "lut": 104534,
+      "ff": 49869,
+      "bram18_equiv": 629,
+      "bram36_equiv": 314.5,
+      "dsp": 1,
+      "ramb18_primitive": null,
+      "ramb36_primitive": null,
+      "power_total_W_est": 4.158,
+      "power_dynamic_W_est": 1.665,
+      "power_static_W_est": 2.493,
+      "power_confidence": "Medium",
+      "energy_uJ_frame_est": 1318.2804870967743,
+      "energy_efficiency_frames_J_est": 758.5639094167905,
+      "energy_status": "postroute vectorless estimate; not board measurement",
+      "controller_final_sha256": "cf3b0cc8ffdd0da15f23ad0824a7a5d697a2ef50f59a9089d62494bc44f9ae81",
+      "power_report_sha256": "8a6a16198cf6cce3f6d2e78723416c631ea7ed2a086d97f51b477637d3121e1b",
+      "implementation_label": "20261019-fixed64-dual-gather-sweep-official-v1",
+      "source_id": "FPGA_SAVED_REPORTS_20261019",
+      "lut_pct": 8.842028691297875,
+      "ff_pct": 2.109089524969549,
+      "bram18_equiv_pct": 14.560185185185185,
+      "dsp_pct": 0.014619883040935672,
+      "native32_pass": true
+    },
+    {
+      "variant_id": "C2V8_b64_8dbc673894e1",
+      "point": "C2V8",
+      "C": 2,
+      "V": 8,
+      "banks": 64,
+      "design_generation": "latest CNU/VNU gather",
+      "latest_design": true,
+      "status": "validated_RTL_and_route",
+      "CNU_II": 1,
+      "VNU_II": 1,
+      "clock_MHz": 100,
+      "latency_mean_us": 237.0671875,
+      "latency_min_us": 134.76,
+      "latency_max_us": 315.21,
+      "latency_mean_cycles": 23706.71875,
+      "latency_min_cycles": 13476,
+      "latency_max_cycles": 31521,
+      "latency_sum_cycles": 758615,
+      "latency_count": 32,
+      "service_mean_cycles": 23810.483870967742,
+      "service_sum_cycles": 738125,
+      "service_count": 31,
+      "throughput_frames_s": 4199.830651989839,
+      "throughput_basis": "31 RTL start-to-start service intervals",
+      "lut": 105901,
+      "ff": 50584,
+      "bram18_equiv": 637,
+      "bram36_equiv": 318.5,
+      "dsp": 1,
+      "ramb18_primitive": null,
+      "ramb36_primitive": null,
+      "power_total_W_est": 4.308,
+      "power_dynamic_W_est": 1.813,
+      "power_static_W_est": 2.495,
+      "power_confidence": "Medium",
+      "energy_uJ_frame_est": 1025.7556451612904,
+      "energy_efficiency_frames_J_est": 974.8910519939274,
+      "energy_status": "postroute vectorless estimate; not board measurement",
+      "controller_final_sha256": "8dbc673894e1adf94c0a3d6e413907542643a1440cef5660e647d9353f0e5077",
+      "power_report_sha256": "2ad7777c3d5200af9d11ff1238caa796c8eeaae9f622964232ff467e23037d8a",
+      "implementation_label": "20261019-cnu-vnu-fixed-writer-official-v1",
+      "source_id": "FPGA_SAVED_REPORTS_20261019",
+      "lut_pct": 8.957656651779672,
+      "ff_pct": 2.1393287318987686,
+      "bram18_equiv_pct": 14.74537037037037,
+      "dsp_pct": 0.014619883040935672,
+      "native32_pass": true
+    },
+    {
+      "variant_id": "C4V2_b128_e032b2ca55b3",
+      "point": "C4V2",
+      "C": 4,
+      "V": 2,
+      "banks": 128,
+      "design_generation": "latest CNU/VNU gather",
+      "latest_design": true,
+      "status": "validated_RTL_and_route",
+      "CNU_II": 1,
+      "VNU_II": 1,
+      "clock_MHz": 100,
+      "latency_mean_us": 456.3728125,
+      "latency_min_us": 213.72,
+      "latency_max_us": 642.81,
+      "latency_mean_cycles": 45637.28125,
+      "latency_min_cycles": 21372,
+      "latency_max_cycles": 64281,
+      "latency_sum_cycles": 1460393,
+      "latency_count": 32,
+      "service_mean_cycles": 45842.87096774193,
+      "service_sum_cycles": 1421129,
+      "service_count": 31,
+      "throughput_frames_s": 2181.364253350681,
+      "throughput_basis": "31 RTL start-to-start service intervals",
+      "lut": 108970,
+      "ff": 47711,
+      "bram18_equiv": 2443,
+      "bram36_equiv": 1221.5,
+      "dsp": 1,
+      "ramb18_primitive": null,
+      "ramb36_primitive": null,
+      "power_total_W_est": 5.425,
+      "power_dynamic_W_est": 2.913,
+      "power_static_W_est": 2.513,
+      "power_confidence": "Medium",
+      "energy_uJ_frame_est": 2486.97575,
+      "energy_efficiency_frames_J_est": 402.0947932443652,
+      "energy_status": "postroute vectorless estimate; not board measurement",
+      "controller_final_sha256": "e032b2ca55b3e6e12a02697ec8a0bc53c57c3175536010479bd28bff1e7935de",
+      "power_report_sha256": "6ed59690456ac7533a2532e4e15fce4eb14db7fc55959580bff3d3536a484ba8",
+      "implementation_label": "20261019-b128-full-group-II1-cv-sweep-official-v1",
+      "source_id": "C4V2_FULL_ROUTE_AUDIT",
+      "lut_pct": 9.217248612802814,
+      "ff_pct": 2.0178221004195427,
+      "bram18_equiv_pct": 56.550925925925924,
+      "dsp_pct": 0.014619883040935672,
+      "native32_pass": true
+    },
+    {
+      "variant_id": "C4V4_b128_4a101f3d535b",
+      "point": "C4V4",
+      "C": 4,
+      "V": 4,
+      "banks": 128,
+      "design_generation": "latest CNU/VNU gather",
+      "latest_design": true,
+      "status": "validated_RTL_and_route",
+      "CNU_II": 1,
+      "VNU_II": 1,
+      "clock_MHz": 100,
+      "latency_mean_us": 299.2228125,
+      "latency_min_us": 157.72,
+      "latency_max_us": 407.61,
+      "latency_mean_cycles": 29922.28125,
+      "latency_min_cycles": 15772,
+      "latency_max_cycles": 40761,
+      "latency_sum_cycles": 957513,
+      "latency_count": 32,
+      "service_mean_cycles": 30054.483870967742,
+      "service_sum_cycles": 931689,
+      "service_count": 31,
+      "throughput_frames_s": 3327.2905443769328,
+      "throughput_basis": "31 RTL start-to-start service intervals",
+      "lut": 163607,
+      "ff": 56001,
+      "bram18_equiv": 693,
+      "bram36_equiv": 346.5,
+      "dsp": 1,
+      "ramb18_primitive": null,
+      "ramb36_primitive": null,
+      "power_total_W_est": 5.453,
+      "power_dynamic_W_est": 2.941,
+      "power_static_W_est": 2.512,
+      "power_confidence": "Medium",
+      "energy_uJ_frame_est": 1638.871005483871,
+      "energy_efficiency_frames_J_est": 610.1761497115226,
+      "energy_status": "postroute vectorless estimate; not board measurement",
+      "controller_final_sha256": "4a101f3d535bdc24279c627475c31521f58c6e4e5933c37b27885752d4640e76",
+      "power_report_sha256": "0d8cff2a8f7049d69a88db328fbb42f1bef532f556eed3c6e8a9499dc9c415fe",
+      "implementation_label": "20261019-b128-full-group-II1-cv-sweep-official-v1",
+      "source_id": "FPGA_SAVED_REPORTS_20261019",
+      "lut_pct": 13.838729868723778,
+      "ff_pct": 2.368427730410069,
+      "bram18_equiv_pct": 16.041666666666668,
+      "dsp_pct": 0.014619883040935672,
+      "native32_pass": true
+    },
+    {
+      "variant_id": "C4V8_b128_4957425c0ed6",
+      "point": "C4V8",
+      "C": 4,
+      "V": 8,
+      "banks": 128,
+      "design_generation": "latest CNU/VNU gather",
+      "latest_design": true,
+      "status": "validated_RTL_and_route",
+      "CNU_II": 1,
+      "VNU_II": 1,
+      "clock_MHz": 100,
+      "latency_mean_us": 220.6478125,
+      "latency_min_us": 129.72,
+      "latency_max_us": 290.01,
+      "latency_mean_cycles": 22064.78125,
+      "latency_min_cycles": 12972,
+      "latency_max_cycles": 29001,
+      "latency_sum_cycles": 706073,
+      "latency_count": 32,
+      "service_mean_cycles": 22160.290322580644,
+      "service_sum_cycles": 686969,
+      "service_count": 31,
+      "throughput_frames_s": 4512.576258899601,
+      "throughput_basis": "31 RTL start-to-start service intervals",
+      "lut": 176779,
+      "ff": 58611,
+      "bram18_equiv": 701,
+      "bram36_equiv": 350.5,
+      "dsp": 1,
+      "ramb18_primitive": null,
+      "ramb36_primitive": null,
+      "power_total_W_est": 4.741,
+      "power_dynamic_W_est": 2.239,
+      "power_static_W_est": 2.502,
+      "power_confidence": "Medium",
+      "energy_uJ_frame_est": 1050.619364193548,
+      "energy_efficiency_frames_J_est": 951.8195019826201,
+      "energy_status": "postroute vectorless estimate; not board measurement",
+      "controller_final_sha256": "4957425c0ed6dee2697046ea42758fc4f20e780c45d6af07759506bfbee04e93",
+      "power_report_sha256": "78c6ecdf43d6c3855d278cb8f136d62012c9e9bfbc7f15adf4933a6169935fc5",
+      "implementation_label": "20261019-dual-gather-b128-full-CN-official-v1",
+      "source_id": "FPGA_SAVED_REPORTS_20261019",
+      "lut_pct": 14.952886046826363,
+      "ff_pct": 2.4788114088509947,
+      "bram18_equiv_pct": 16.22685185185185,
+      "dsp_pct": 0.014619883040935672,
+      "native32_pass": true
+    }
+  ],
+  "BB144_evaluation": {
+    "schema": "relayhls-bb144-validated-evaluation-v1",
+    "updated_utc": "2026-10-21T08:25:24.734474+00:00",
+    "workload": {
+      "detectors": 936,
+      "stored_faults": 8832,
+      "active_faults": 8784,
+      "edges": 30672,
+      "ordered_inputs": 32,
+      "input_sha256": "5dab62436afa9cf136a4da37f74c0c1b44c8ed6fbc6f905dec41391ee2a26d9d",
+      "native_golden_sha256": "51cf8d42009edbca489b8cbb2c4ca6df92504259cc4240a716a373eb4bc4c3da"
+    },
+    "power_scope": "vectorless on-chip estimate, not measured board power or BB144 activity-matched energy",
+    "rows": [
+      {
+        "workload": "BB144 Z",
+        "point": "C4V8",
+        "C": 4,
+        "V": 8,
+        "banks": 128,
+        "CNU_II": 1,
+        "VNU_II": 1,
+        "status": "validated_RTL_and_route",
+        "clock_MHz": 100,
+        "latency_mean_us": 1054.3875,
+        "latency_mean_cycles": 105438.75,
+        "latency_min_us": 708.51,
+        "latency_max_us": 1120.93,
+        "latency_sum_cycles": 3374040,
+        "latency_count": 32,
+        "service_sum_cycles": 3296545,
+        "service_count": 31,
+        "throughput_decodings_s": 940.3784871736924,
+        "LUT": 191026,
+        "FF": 38154,
+        "BRAM18_equivalent": 3717,
+        "DSP": 1,
+        "LUT_utilization_percent": 16.157971308702123,
+        "FF_utilization_percent": 1.613631749898498,
+        "BRAM_utilization_percent": 86.04166666666667,
+        "DSP_utilization_percent": 0.014619883040935673,
+        "power_total_W_est": 7.012,
+        "power_dynamic_W_est": 4.472,
+        "power_static_W_est": 2.54,
+        "power_confidence": "Medium",
+        "energy_uJ_decoding_est": 7456.572109677419,
+        "energy_efficiency_decodings_J_est": 134.10988122842164,
+        "setup_slack_ns": 0.208,
+        "hold_slack_ns": 0.01,
+        "pulse_slack_ns": 4.458,
+        "fully_routed_nets": 175185,
+        "controller_final_sha256": "d50ba13df7214d88c736e9c8c823314aa7c590808e7bc52f9fe92bdaeb61fa69",
+        "DCP_sha256": "46a8ee92878b28daa2841348f74b41e697f8cbb3f603a88300b1daac41eb8c03",
+        "power_scope": "vectorless on-chip estimate, not measured board power or BB144 activity-matched energy",
+        "CPU_GPU_comparison": "Not evaluated for BB144; BB72 CPU/GPU measurements are not reused as BB144 results."
+      }
+    ],
+    "selection": "Only C4V8/b128, the highest-throughput validated BB144 configuration, is included in this release."
+  }
+}
