@@ -1,0 +1,11 @@
+{
+  "name": "RelayBP_pack64_c8_v16",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "hls_config.cfg"
+    ],
+    "work_dir": "."
+  }
+}
